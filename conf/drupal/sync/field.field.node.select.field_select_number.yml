@@ -1,0 +1,23 @@
+uuid: ef5dc713-15d6-4d80-9504-4e6cba2bf2fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_number
+    - node.type.select
+id: node.select.field_select_number
+field_name: field_select_number
+entity_type: node
+bundle: select
+label: 'Select Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

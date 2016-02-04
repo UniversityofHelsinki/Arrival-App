@@ -1,0 +1,29 @@
+uuid: 037c09ac-7331-4905-8a06-6e4cd3dde47b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.options_list.field_value
+    - taxonomy.vocabulary.options_list
+  module:
+    - text
+id: taxonomy_term.options_list.default
+targetEntityType: taxonomy_term
+bundle: options_list
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  field_value:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+hidden: {  }
