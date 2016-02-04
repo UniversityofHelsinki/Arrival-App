@@ -11,7 +11,7 @@ $databases['default']['default'] = array(
   'username' => 'd_hy_neuvonta',
   'password' => 'dfbj89aeASFDF__gya9dfgheth',
   'host' => 'localhost',
-  'collation' => 'utf8mb4_general_ci',
+  'collation' => 'utf8_general_ci',
 );
 
 $conf['drupal_http_request_fails'] = FALSE;
