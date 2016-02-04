@@ -6,6 +6,7 @@
 # Basic new site functionality
 new:
   - verify: "Type yes to verify you want to build a new installation: "
+  - shell: cd arrival && npm install && bower install && gulp
   - backup
   - purge
   - make
@@ -17,6 +18,7 @@ new:
 # Basic site update functionality
 update:
   #- backup
+  - shell: cd arrival && npm install && bower install && gulp
   - make
   - finalize
   - update

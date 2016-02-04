@@ -43,6 +43,7 @@ default:
     - code/themes: drupal/themes/custom
     - conf/drupal: config
     - conf/local.settings.php: drupal/sites/default/settings.php
+    - arrival/dist:  drupal/app
 
   copy:
     - conf/composer/index.php: drupal/index.php
@@ -58,6 +59,7 @@ stage:
     - code/themes: drupal/themes/custom
     - conf/drupal: config
     - conf/stage.settings.php: drupal/sites/default/settings.php
+    - arrival/dist: drupal/app
 
   copy:
     - conf/composer/index.php: drupal/index.php
@@ -66,10 +68,8 @@ stage:
 production:
 
   # In development environments we usually want to use symlinks, note the settings.php linking
-  link:
-    - code/modules: drupal/modules/custom
-
   copy:
+    - code/modules: drupal/modules/custom
     - conf/composer/index.php: drupal/index.php
     - conf/composer/autoload.php: drupal/autoload.php
     - conf/composer/composer.json: composer.json
@@ -77,5 +77,6 @@ production:
     - code/themes: drupal/themes/custom
     - conf/drupal: config
     - conf/local.settings.php: drupal/sites/default/settings.php
+    - arrival/dist:  drupal/app
 
 
