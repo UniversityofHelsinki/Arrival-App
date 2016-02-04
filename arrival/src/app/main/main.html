@@ -1,0 +1,12 @@
+<div class="intro container" ng-show="main.inProgress">
+  <p>Welcome to the Arrival App</p>
+  <!--<button ng-click="main.start()">Start</button>-->
+</div>
+
+<div class="select-area container" ng-show="!main.showAnswers">
+  <selectarea/>
+</div>
+
+<div class="answer-area container" ng-show="main.showAnswers">
+  <answerarea/>
+</div>
