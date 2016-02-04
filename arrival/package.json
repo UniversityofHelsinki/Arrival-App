@@ -2,7 +2,8 @@
   "name": "arrival",
   "version": "0.0.0",
   "dependencies": {
-    "bower": "^1.7.7"
+    "bower": "^1.7.7",
+    "gulp": "^3.9.0"
   },
   "scripts": {
     "test": "gulp test"
