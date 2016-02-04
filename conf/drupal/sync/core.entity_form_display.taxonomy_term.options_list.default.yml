@@ -1,0 +1,36 @@
+uuid: 5de01b58-50e9-42f9-a707-7ba50ce80b6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.options_list.field_value
+    - taxonomy.vocabulary.options_list
+  module:
+    - text
+id: taxonomy_term.options_list.default
+targetEntityType: taxonomy_term
+bundle: options_list
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_value:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  name:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

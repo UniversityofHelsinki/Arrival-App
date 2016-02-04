@@ -1,0 +1,23 @@
+uuid: c5b3300a-52c3-4cac-8600-c713abfd8950
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_value
+    - node.type.option
+id: node.option.field_value
+field_name: field_value
+entity_type: node
+bundle: option
+label: Value
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

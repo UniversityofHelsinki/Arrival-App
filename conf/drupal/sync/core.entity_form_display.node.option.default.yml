@@ -1,0 +1,42 @@
+uuid: aa4bad4d-d121-48bd-9203-3e721da36711
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.option.body
+    - field.field.node.option.field_value
+    - node.type.option
+  module:
+    - text
+id: node.option.default
+targetEntityType: node
+bundle: option
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 3
+      placeholder: ''
+      summary_rows: 3
+    third_party_settings: {  }
+  field_value:
+    weight: 0
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  title:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

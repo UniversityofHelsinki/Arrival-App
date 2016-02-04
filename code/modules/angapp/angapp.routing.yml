@@ -1,0 +1,6 @@
+angapp.app_redirect:
+  path: '/app_redirect'
+  defaults:
+    _controller: '\Drupal\angapp\AppContainerController::homepageRedirect'
+  requirements:
+    _permission: 'access content'

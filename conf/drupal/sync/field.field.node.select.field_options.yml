@@ -1,0 +1,21 @@
+uuid: 628443cf-9db5-42e3-ae06-6a725974368c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_options
+    - node.type.select
+id: node.select.field_options
+field_name: field_options
+entity_type: node
+bundle: select
+label: Options
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

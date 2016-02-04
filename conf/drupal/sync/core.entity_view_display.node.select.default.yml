@@ -1,0 +1,41 @@
+uuid: 8f236e9d-5a91-407b-ae00-0ebc63fc1df6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.select.body
+    - field.field.node.select.field_options
+    - field.field.node.select.field_select_number
+    - node.type.select
+  module:
+    - text
+    - user
+id: node.select.default
+targetEntityType: node
+bundle: select
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_options:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_select_number:
+    weight: 103
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+  links:
+    weight: 100
+hidden: {  }
