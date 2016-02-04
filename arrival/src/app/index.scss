@@ -39,6 +39,39 @@ h1 {
   text-transform: uppercase;
 }
 
+button {
+  background-color: #178feb;
+  color: white;
+  border: 0;
+  font-size: 1.2em;
+  margin-bottom: .5rem;
+  padding: 1.5rem 2rem;
+  position: relative;
+  text-align: left;
+  width: 100%;
+
+  &:after {
+    content: ">";
+    display: block;
+    position: absolute;
+    background-color: #1073bf;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5.2rem;
+    text-align: center;
+    padding-top: 1.4rem;
+  }
+
+  &:hover {
+    background-color: #0c5790;
+
+    &:after {
+      background-color: #083a61;
+    }
+  }
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
