@@ -11,7 +11,6 @@ default:
   #   - vagrant
   #   - mylocalbox
   aliases: vagrant
-
   # Omit makefile to leave out drush
   # makefile: conf/site.make
   type: composer
@@ -44,6 +43,21 @@ default:
     - code/themes: drupal/themes/custom
     - conf/drupal: config
     - conf/local.settings.php: drupal/sites/default/settings.php
+
+  copy:
+    - conf/composer/index.php: drupal/index.php
+    - conf/composer/autoload.php: drupal/autoload.php
+
+stage:
+
+  # In development environments we usually want to use symlinks, note the settings.php linking
+  link:
+    - conf/composer/composer.json: composer.json
+    - files: drupal/sites/default/files
+    - code/modules: drupal/modules/custom
+    - code/themes: drupal/themes/custom
+    - conf/drupal: config
+    - conf/stage.settings.php: drupal/sites/default/settings.php
 
   copy:
     - conf/composer/index.php: drupal/index.php
