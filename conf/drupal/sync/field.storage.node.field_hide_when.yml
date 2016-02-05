@@ -1,0 +1,20 @@
+uuid: ad73f79d-446e-4e15-8537-55aa2c4333a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_hide_when
+field_name: field_hide_when
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
