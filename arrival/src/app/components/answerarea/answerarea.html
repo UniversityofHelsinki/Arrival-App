@@ -1,1 +1,7 @@
 <h1>Results:<br>Relocation task list</h1>
+<div ng-repeat="answer in main.answers track by answer.nid">
+  <h2>
+    {{answer.header}}
+  </h2>
+  {{answer.answer}}
+</div>

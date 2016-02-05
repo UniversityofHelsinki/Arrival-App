@@ -62,8 +62,8 @@
     function getAnswer() {
       vm.showAnswers = true;
       answersService.getAnswer(vm.selection).then(function(data) {
-        vm.header = data[0].header;
-        vm.answer = data[0].answer;
+        //vm.headers = data[0].header;
+        vm.answers = data;
       });
     }
   }
