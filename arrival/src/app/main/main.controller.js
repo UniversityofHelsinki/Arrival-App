@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($log, questionsService) {
+  function MainController($log, questionsService, answersService) {
     var vm = this;
 
     vm.inProgress = false;
@@ -27,13 +27,16 @@
     }
 
     function next(i) {
-      vm.selection = vm.selection + vm.qid + ':' + i + ';';
+      if(vm.selection != '') {
+        vm.selection = vm.selection + ',';
+      }
+      vm.selection = vm.selection + i;
       $log.debug('Selection: ' + vm.selection);
       if(vm.qid<vm.questionCount) {
         vm.qid++;
         getQuestion();
       } else {
-        vm.showAnswers = true;
+        getAnswer();
       }
     }
 
@@ -52,6 +55,15 @@
       questionsService.getQuestion(vm.qid).then(function(data) {
         vm.question = data[0].question;
         vm.options = data[0].options.split('||');
+        vm.optionIds = data[0].option_ids.split('||');
+      });
+    }
+
+    function getAnswer() {
+      vm.showAnswers = true;
+      answersService.getAnswer(vm.selection).then(function(data) {
+        vm.header = data[0].header;
+        vm.answer = data[0].answer;
       });
     }
   }
