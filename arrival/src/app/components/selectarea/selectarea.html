@@ -2,5 +2,5 @@
   {{main.question}}
 </h1>
 <div ng-repeat="option in main.options">
-  <button ng-click="main.next($index)">{{option}}</button>
+  <button ng-click="main.next(main.optionIds[$index])">{{option}}</button>
 </div>
