@@ -1,0 +1,27 @@
+uuid: 43e62ebe-6d81-4f26-8b2a-427de1ad0013
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_when
+    - node.type.guide
+    - taxonomy.vocabulary.options_list
+id: node.guide.field_show_when
+field_name: field_show_when
+entity_type: node
+bundle: guide
+label: 'Show when'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      options_list: options_list
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
