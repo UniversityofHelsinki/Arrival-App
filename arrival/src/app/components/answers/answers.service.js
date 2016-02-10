@@ -51,6 +51,7 @@
             for (var ii=i;ii>=0;ii--) {
               if (listGuides[ii].newcategory === true) {
                 listGuides[ii].answer = listGuides[ii].answer+listGuides[i].answer;
+                ii=0;
               }
             } 
           } else {
