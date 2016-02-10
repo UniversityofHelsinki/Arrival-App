@@ -70,6 +70,23 @@ button {
       background-color: #083a61;
     }
   }
+
+  &.answer-header {
+    background-color: white;
+    border: 1px solid #178feb;
+    color: #178feb;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.answer-closed + div {
+display: none;
+}
+.answer-open + div {
+display: block;
 }
 
 /**
