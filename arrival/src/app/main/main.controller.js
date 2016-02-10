@@ -54,6 +54,7 @@
     function getQuestion() {
       questionsService.getQuestion(vm.qid).then(function(data) {
         vm.question = data[0].question;
+        vm.info = data[0].info;
         vm.options = data[0].options.split('||');
         vm.optionIds = data[0].option_ids.split('||');
       });
