@@ -1,7 +1,10 @@
 <h1>
   {{main.question}}
 </h1>
-<div ng-if="main.info" ng-bind-html="main.info"></div>
+<div ng-if="main.info">
+  <div ng-bind-html="main.info" ng-show="showinfo"></div>
+  <span class="toggle-info" ng-click="showinfo=true">info</button>
+</div>
 <div ng-repeat="option in main.options">
   <button ng-click="main.next(main.optionIds[$index])">{{option}}</button>
 </div>
