@@ -28,22 +28,14 @@
         return $http.get(apiHost + 'hide/' + selection)
           .success(function(data) {
             listHidden = data;
-            $log.debug('1:');
-            $log.debug(listHidden);
           });
       }
 
       function getAnswerComplete(response) {
         var i = 0;
-        $log.debug('2:');
-        $log.debug(listHidden);
         if(listHidden.length > 0) {
           angular.forEach(response.data, function() {
             if (!isHidden(response.data[i].nid)) {
-              $log.debug('response.data: ');
-              $log.debug(response.data);
-              $log.debug('response.data[i]: ');
-              $log.debug(response.data[i]);
               listGuides.push(response.data[i]);
             }
             i++;
@@ -52,23 +44,36 @@
           listGuides = response.data;
         }
 
+        i=0;
+        angular.forEach(listGuides, function() {
+          if(listGuides[i-1] && !isNewCategory(i)) {
+            listGuides[i].newcategory = false;
+          } else {
+            listGuides[i].newcategory = true;
+          }
+          i++;
+        });
+
         function isHidden(aid) {
           var i = 0;
-          var hidden = false;
-          $log.debug('3:');
-          $log.debug(listHidden);
+          var isHidden = false;
           angular.forEach(listHidden, function() {
-            $log.debug('check!!')
             if (aid == listHidden[i].nid) {
-              $log.debug('hide!!')
-              hidden = true;
+              isHidden = true;
             }
             i++;
           });
-          return hidden;
+          return isHidden;
         }
 
-        $log.debug('listGuides: ' + listGuides);
+        function isNewCategory(ai) {
+          var isNew = true;
+          if (listGuides[ai-1].header == listGuides[ai].header) {
+            isNew = false;
+          }
+          return isNew;
+        }
+
         return listGuides;
       }
 

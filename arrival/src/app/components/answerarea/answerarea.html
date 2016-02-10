@@ -1,6 +1,6 @@
 <h1>Results:<br>Relocation task list</h1>
 <div ng-repeat="answer in main.answers track by answer.nid">
-  <h2>
+  <h2 ng-if="answer.newcategory">
     {{answer.header}}
   </h2>
   {{answer.answer}}
