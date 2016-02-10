@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.options_list.field_value
     - taxonomy.vocabulary.options_list
   module:
     - text
@@ -19,12 +18,6 @@ content:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
-  field_value:
-    weight: 3
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
   name:
     type: string_textfield
     weight: 1
