@@ -48,6 +48,11 @@
         angular.forEach(listGuides, function() {
           if(listGuides[i-1] && !isNewCategory(i)) {
             listGuides[i].newcategory = false;
+            for (var ii=i;ii>=0;ii--) {
+              if (listGuides[ii].newcategory === true) {
+                listGuides[ii].answer = listGuides[ii].answer+listGuides[i].answer;
+              }
+            } 
           } else {
             listGuides[i].newcategory = true;
           }
