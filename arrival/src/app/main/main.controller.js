@@ -17,7 +17,7 @@
     vm.reset = reset;
     vm.selection = '';
 
-    start();
+    //start();
 
     function start() {
       vm.inProgress = true;
