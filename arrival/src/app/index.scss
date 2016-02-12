@@ -12,6 +12,39 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 // bower:scss
 // endbower
 
+@font-face {
+  font-family: 'hy-icons';
+  src: url('../fonts/hy-icons_5.0.4.eot');
+  src: url('../fonts/hy-icons_5.0.4.eot?#iefix') format('eot'), url('../fonts/hy-icons_5.0.4.woff') format('woff'), url('../fonts/hy-icons_5.0.4.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hy {
+  display: inline-block;
+  font-family: "hy-icons";
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+     box-sizing: border-box;
+  }
+}
+
+.hy-2x { font-size: 2em; }
+.hy-3x { font-size: 3em; }
+.hy-4x { font-size: 4em; }
+.hy-5x { font-size: 5em; }
+
+.hy-hy-logo:before { content: "\EA17" }
+.hy-link-arrow:before { content: "\EA1B" }
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
