@@ -3,4 +3,6 @@
 builds
 current
 ./drupal
+production
+production.tgz
 drupal.sqlite

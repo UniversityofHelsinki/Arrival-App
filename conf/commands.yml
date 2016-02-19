@@ -34,6 +34,17 @@ reinstall:
 purge:
   - purge
 
+# Create production package
+package:
+  - shell: cd arrival && npm install
+  - shell: cd arrival && node_modules/bower/bin/bower install
+  - shell: cd arrival && node_modules/gulp/bin/gulp.js
+  - purge
+  - make
+  - cleanup
+  - finalize
+  - shell: cd production && tar cvfz ../production.tgz .
+
 # This is just an example on how to create custom commands,
 # this will create a .tgz out of the drupal installation without
 # touching the current installation.

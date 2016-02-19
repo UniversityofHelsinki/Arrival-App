@@ -46,6 +46,7 @@ default:
     - arrival/dist:  drupal/app
 
   copy:
+    - conf/composer/htaccess:  drupal/.htaccess
     - conf/composer/index.php: drupal/index.php
     - conf/composer/autoload.php: drupal/autoload.php
 
@@ -62,21 +63,27 @@ stage:
     - arrival/dist: drupal/app
 
   copy:
+    - conf/composer/htaccess:  drupal/.htaccess
     - conf/composer/index.php: drupal/index.php
     - conf/composer/autoload.php: drupal/autoload.php
 
 production:
 
+  aliases: prod
+  final: production
+
+  link:
+    - files: drupal/sites/default/files
+
   # In development environments we usually want to use symlinks, note the settings.php linking
   copy:
-    - code/modules: drupal/modules/custom
-    - conf/composer/index.php: drupal/index.php
-    - conf/composer/autoload.php: drupal/autoload.php
     - conf/composer/composer.json: composer.json
-    - files: drupal/sites/default/files
+    - code/modules: drupal/modules/custom
     - code/themes: drupal/themes/custom
     - conf/drupal: config
-    - conf/local.settings.php: drupal/sites/default/settings.php
-    - arrival/dist:  drupal/app
-
+    - arrival/dist: drupal/app
+    - conf/composer/htaccess: drupal/.htaccess
+    - conf/composer/index.php: drupal/index.php
+    - conf/composer/autoload.php: drupal/autoload.php
+    - conf/prod.settings.php: drupal/sites/default/settings.php
 
