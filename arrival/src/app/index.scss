@@ -106,10 +106,13 @@ button {
   border: 0;
   font-size: 1.2em;
   margin-bottom: .5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 7.2rem 1.5rem 2rem;
   position: relative;
-  text-align: left;
-  width: 100%;
+
+  &.button-wide {
+    text-align: left;
+    width: 100%;
+  }
 
   &:after {
     content: ">";
@@ -144,7 +147,7 @@ button {
 }
 
 .answer-closed + div {
-display: none;
+  display: none;
 }
 .answer-open + div {
 display: block;
