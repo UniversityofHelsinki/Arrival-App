@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.guide.body
+    - field.field.node.guide.field_category
+    - field.field.node.guide.field_hide_when
+    - field.field.node.guide.field_show_when
     - node.type.guide
   module:
     - text
