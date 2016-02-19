@@ -1,0 +1,8 @@
+<header>
+  <span class="prompt prompt-clickable" ng-click="main.toggleDisclaimer()">Close</span>
+</header>
+
+<div ng-if="main.disclaimer" class="container">
+  <h1>Legal disclaimer</h1>
+  <div ng-bind-html="main.disclaimer"></div>
+</div>

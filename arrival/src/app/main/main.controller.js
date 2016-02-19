@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($log, questionsService, answersService) {
+  function MainController($log, introService, questionsService, answersService, disclaimerService) {
     var vm = this;
 
     vm.inProgress = false;
@@ -16,14 +16,19 @@
     vm.next = next;
     vm.reset = reset;
     vm.selection = '';
+    vm.showDisclaimer = false;
+    vm.toggleDisclaimer = function() {
+      vm.showDisclaimer = !vm.showDisclaimer;
+    }
 
-    //start();
+    start();
 
     function start() {
-      vm.inProgress = true;
       countQuestions();
       vm.qid = 1;
+      getIntro();
       getQuestion();
+      getDisclaimer();
     }
 
     function next(i) {
@@ -31,10 +36,11 @@
         vm.selection = vm.selection + ',';
       }
       vm.selection = vm.selection + i;
-      $log.debug('Selection: ' + vm.selection);
+      //$log.debug('Selection: ' + vm.selection);
       if(vm.qid<vm.questionCount) {
         vm.qid++;
         getQuestion();
+        vm.inProgress = true;
       } else {
         getAnswer();
       }
@@ -65,6 +71,18 @@
       answersService.getAnswer(vm.selection).then(function(data) {
         //vm.headers = data[0].header;
         vm.answers = data;
+      });
+    }
+
+    function getDisclaimer() {
+      disclaimerService.getDisclaimer().then(function(data) {
+        vm.disclaimer = data[0].body;
+      });
+    }
+
+    function getIntro() {
+      introService.getIntro().then(function(data) {
+        vm.intro = data[0];
       });
     }
   }
