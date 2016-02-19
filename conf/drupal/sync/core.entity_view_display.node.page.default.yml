@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_is_disclaimer
+    - field.field.node.page.field_is_intro
     - node.type.page
   module:
     - text
@@ -21,6 +23,24 @@ content:
     weight: 100
     settings: {  }
     third_party_settings: {  }
+  field_is_disclaimer:
+    weight: 103
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_is_intro:
+    weight: 102
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
   links:
     weight: 101
 hidden: {  }

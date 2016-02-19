@@ -1,0 +1,23 @@
+uuid: e973cdd6-d469-4175-9305-5edbd27bd16b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_disclaimer
+    - node.type.page
+id: node.page.field_is_disclaimer
+field_name: field_is_disclaimer
+entity_type: node
+bundle: page
+label: 'Show as disclaimer'
+description: 'Check this checkbox if text is used as the disclaimer text of the application.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean
