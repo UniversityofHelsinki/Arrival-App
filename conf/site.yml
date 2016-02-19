@@ -20,6 +20,8 @@ default:
 
   make_cache: .make_cache
 
+  drush: current/vendor/bin/drush
+
   # The final produced Drupal installation
   final: current
 
