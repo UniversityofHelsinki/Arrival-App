@@ -129,6 +129,10 @@ button {
     padding-top: 1.4rem;
   }
 
+  &.button-back:after {
+    content: "<";
+  }
+
   &:hover {
     background-color: #0c5790;
 
