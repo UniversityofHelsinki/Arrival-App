@@ -1,17 +1,17 @@
-uuid: c2d7fda5-2018-4132-9600-f7a7efd153b1
+uuid: 254fe653-dcce-4335-a947-71190111b910
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.select.body
-    - node.type.select
+    - field.field.node.option.body
+    - node.type.option
   module:
     - text
     - user
-id: node.select.teaser
+id: node.option.teaser
 targetEntityType: node
-bundle: select
+bundle: option
 mode: teaser
 content:
   body:
@@ -24,5 +24,4 @@ content:
   links:
     weight: 100
 hidden:
-  field_options: true
-  field_select_number: true
+  field_value: true

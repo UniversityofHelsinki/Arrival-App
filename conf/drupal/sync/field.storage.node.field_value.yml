@@ -1,14 +1,16 @@
-uuid: 8792ac20-a511-4ac0-9025-374c8c1b04ed
+uuid: c962e88f-922b-4b77-bc55-8508561c5a2a
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_is_intro
-field_name: field_is_intro
+id: node.field_value
+field_name: field_value
 entity_type: node
-type: boolean
-settings: {  }
+type: integer
+settings:
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
