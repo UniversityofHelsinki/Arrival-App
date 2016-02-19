@@ -79,6 +79,20 @@ header {
   color: white;
   padding: .5em;
   text-transform: uppercase;
+
+  .brand-logo {
+    @extend .hy;
+    @extend .hy-2x;
+    @extend .hy-hy-logo;
+    float: left;
+    margin-right: .5em;
+  }
+
+  .brand-title {
+    font-weight: 800;
+    height: 39px;
+    line-height: 39px;
+  }
 }
 
 h1 {
