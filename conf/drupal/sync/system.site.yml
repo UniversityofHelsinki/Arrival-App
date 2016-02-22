@@ -1,11 +1,11 @@
 uuid: f797bb34-5e9f-431d-a537-552dc29e4885
-name: Wundersite
-mail: admin@example.com
+name: uniarrival.helsinki.fi
+mail: do-not-reply@uniarrival.helsinki.fi
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /user/login
+  front: /app_redirect
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en
