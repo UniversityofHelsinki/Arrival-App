@@ -20,7 +20,6 @@ $ cd /var/www/current
 $ sudo mv /home/$kevari/production.tgz .
 $ sudo tar xvfz production.tgz
 $ sudo chown -R apache:apache .
-$ cd drupal
-$ ../vendor/bin/drush cim -y
+$ cd drupal && ../vendor/bin/drush cim -y
 
 $kevari is your kevyttunnus which you can get from HY.
