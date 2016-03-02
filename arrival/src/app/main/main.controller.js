@@ -3,7 +3,14 @@
 
   angular
     .module('arrival')
-    .controller('MainController', MainController);
+    .controller('MainController', MainController)
+    .filter('addTargetBlank', function(){
+      return function(x) {
+        var tree = angular.element('<div>'+x+'</div>');
+        tree.find('a').attr('target', '_blank');
+        return angular.element('<div>').append(tree).html();
+      }
+    });
 
   /** @ngInject */
   function MainController($log, introService, questionsService, answersService, disclaimerService) {
