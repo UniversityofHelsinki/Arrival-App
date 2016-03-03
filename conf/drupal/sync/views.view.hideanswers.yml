@@ -1,4 +1,4 @@
-uuid: 7424fbfb-5378-4d05-8b09-9b10be4c9971
+puuid: 7424fbfb-5378-4d05-8b09-9b10be4c9971
 langcode: en
 status: true
 dependencies:
@@ -232,9 +232,8 @@ display:
       display_extenders: {  }
       path: api/hide/%
       pager:
-        type: some
+        type: none
         options:
-          items_per_page: 10
           offset: 0
       style:
         type: serializer
