@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_mail().
+ */
+function angapp_mail($key, &$message, $params) {
+
+  switch ($key) {
+
+    case 'results':
+
+      $sender_name = 'hello';
+      //$entity = $params['entity'];
+
+      // Prepare subject and body.
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = 'Uniarrival steps';
+
+      foreach ($params as $row) {
+        $message['body'][] = '<h1>' . $row['header'] . '</h1>' . $row['answer'];
+      }
+
+      // $message['body'][] = "Message: " . $entity->field_message->value;
+      // $message['body'][] = "Content link: " . $entity->field_content->entity->url('canonical', array('absolute' => TRUE));
+
+      break;
+  }
+}
