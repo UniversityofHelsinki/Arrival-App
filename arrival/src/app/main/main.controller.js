@@ -55,9 +55,10 @@
     }
 
     function reset() {
-      vm.inProgress = false;
-      vm.showAnswers = false;
       vm.selection = '';
+      vm.hideQuestion = '';
+      vm.answers = '';
+      vm.showAnswers = false;
       start();
     }
 
