@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.select.body
+    - field.field.node.select.field_hide_select_when
     - field.field.node.select.field_options
     - field.field.node.select.field_select_number
     - node.type.select
@@ -21,6 +22,13 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+  field_hide_select_when:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_options:
     weight: 102
     label: above

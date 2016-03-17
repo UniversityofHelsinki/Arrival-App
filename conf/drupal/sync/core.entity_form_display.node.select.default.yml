@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.select.body
+    - field.field.node.select.field_hide_select_when
     - field.field.node.select.field_options
     - field.field.node.select.field_select_number
     - node.type.select
@@ -22,6 +23,14 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+  field_hide_select_when:
+    weight: 28
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_options:
     weight: 26
     settings:
