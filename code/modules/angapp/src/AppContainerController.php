@@ -52,15 +52,25 @@ class AppContainerController extends ControllerBase {
 
     $view = views_embed_view('answer', 'rest_export_1', $result);
     $content = \Drupal::service('renderer')->render($view);
+    $nodes = Json::decode($content);
 
-    $params = Json::decode($content);
+    // Get the hidden fields
+    $view = views_embed_view('hideanswers', 'rest_export_1', $result);
+    $content = \Drupal::service('renderer')->render($view);
+    $hidden = Json::decode($content);
+    $hidden = array_map(function ($item) {
+      return $item['nid'];
+    }, $hidden);
 
     $result = \Drupal::service('plugin.manager.mail')->mail(
       'angapp',
       'results',
       implode(', ', $to),
       \Drupal::currentUser()->getPreferredLangcode(),
-      $params
+      [
+        'nodes' => $nodes,
+        'hidden' => $hidden,
+      ]
     );
 
     return new JsonResponse([
