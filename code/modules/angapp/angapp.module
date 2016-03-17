@@ -16,8 +16,11 @@ function angapp_mail($key, &$message, $params) {
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Uniarrival steps';
 
+
       foreach ($params as $row) {
-        $message['body'][] = '<h1>' . $row['header'] . '</h1>' . $row['answer'];
+        $message['body'][] = $row['header'];
+        $message['body'][] =
+          strip_tags(str_replace("<br/>", "\r\n", $row['answer']));
       }
 
       // $message['body'][] = "Message: " . $entity->field_message->value;
