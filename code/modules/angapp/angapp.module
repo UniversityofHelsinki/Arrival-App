@@ -9,12 +9,9 @@ function angapp_mail($key, &$message, $params) {
 
     case 'results':
 
-      $sender_name = 'hello';
-      //$entity = $params['entity'];
-
       // Prepare subject and body.
       $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['subject'] = 'Uniarrival steps';
+      $message['subject'] = 'Your Uni Arrival Advisor Steps';
 
       $step = 1;
       $previous_header = "";
