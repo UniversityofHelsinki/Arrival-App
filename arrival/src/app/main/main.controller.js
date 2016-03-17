@@ -55,7 +55,10 @@
     }
 
     function reset() {
-      // reset
+      vm.inProgress = false;
+      vm.showAnswers = false;
+      vm.selection = '';
+      start();
     }
 
     function countQuestions() {
