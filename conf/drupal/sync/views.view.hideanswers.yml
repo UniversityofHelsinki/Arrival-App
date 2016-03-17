@@ -1,4 +1,4 @@
-puuid: 7424fbfb-5378-4d05-8b09-9b10be4c9971
+uuid: 7424fbfb-5378-4d05-8b09-9b10be4c9971
 langcode: en
 status: true
 dependencies:
@@ -32,7 +32,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
