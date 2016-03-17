@@ -23,6 +23,7 @@
     vm.next = next;
     vm.reset = reset;
     vm.selection = '';
+    vm.hideQuestion = '';
     vm.showDisclaimer = false;
     vm.toggleDisclaimer = function() {
       vm.showDisclaimer = !vm.showDisclaimer;
@@ -60,7 +61,7 @@
     function countQuestions() {
       questionsService.getQuestion('all').then(function(data) {
         vm.questionCount = data.length;
-        $log.debug('Number of questions: ' + vm.questionCount);
+        //$log.debug('Number of questions: ' + vm.questionCount);
       });
     }
 
@@ -70,13 +71,20 @@
         vm.info = data[0].info;
         vm.options = data[0].options.split('||');
         vm.optionIds = data[0].option_ids.split('||');
+        if (data[0].hide != '' && vm.selection != '') { //check if there might be something to hide
+          vm.hideQuestion = data[0].hide.split(',');
+          for (var i = 0; i < vm.hideQuestion.length; i++) {
+            if (vm.selection.split(',').indexOf(vm.hideQuestion[i]) > -1) { //if the question needs to be hidden...
+              next(0); //...move to next question and set answer value to 0
+            }
+          }
+        }
       });
     }
 
     function getAnswer() {
       vm.showAnswers = true;
       answersService.getAnswer(vm.selection).then(function(data) {
-        //vm.headers = data[0].header;
         vm.answers = data;
       });
     }
