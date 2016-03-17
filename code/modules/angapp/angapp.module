@@ -29,7 +29,7 @@ function angapp_mail($key, &$message, $params) {
         }
         $message['body'][] = strip_tags($row['answer']);
       }
-      print_r($message['body']);
+
       break;
   }
 }
