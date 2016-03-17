@@ -33,6 +33,7 @@
 
       function getAnswerComplete(response) {
         var i = 0;
+        var n = 1;
         if(listHidden.length > 0) {
           angular.forEach(response.data, function() {
             if (!isHidden(response.data[i].nid)) {
@@ -45,6 +46,7 @@
         }
 
         i=0;
+        n=1;
         angular.forEach(listGuides, function() {
           if(listGuides[i-1] && !isNewCategory(i)) {
             listGuides[i].newcategory = false;
@@ -56,6 +58,8 @@
             } 
           } else {
             listGuides[i].newcategory = true;
+            listGuides[i].displayheader = 'Step ' + n;
+            n++;
           }
           i++;
         });
