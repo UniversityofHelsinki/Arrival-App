@@ -16,16 +16,20 @@ function angapp_mail($key, &$message, $params) {
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Uniarrival steps';
 
+      $step = 1;
+      $previous_header = "";
 
-      foreach ($params as $row) {
-        $message['body'][] = $row['header'];
-        $message['body'][] =
-          strip_tags(str_replace("<br/>", "\r\n", $row['answer']));
+      foreach ($params['nodes'] as $row) {
+        if (in_array($row['nid'], $params['hidden'])) {
+          continue;
+        }
+        if ($previous_header != $row['header']) {
+          $message['body'][] = "Step " . $step++ . ":";
+          $previous_header = $row['header'];
+        }
+        $message['body'][] = strip_tags($row['answer']);
       }
-
-      // $message['body'][] = "Message: " . $entity->field_message->value;
-      // $message['body'][] = "Content link: " . $entity->field_content->entity->url('canonical', array('absolute' => TRUE));
-
+      print_r($message['body']);
       break;
   }
 }
