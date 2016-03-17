@@ -4,3 +4,9 @@ angapp.app_redirect:
     _controller: '\Drupal\angapp\AppContainerController::homepageRedirect'
   requirements:
     _permission: 'access content'
+angapp.app_mailer:
+  path: '/mailer'
+  defaults:
+    _controller: '\Drupal\angapp\AppContainerController::mailer'
+  requirements:
+    _permission: 'access content'
