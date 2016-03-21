@@ -18,6 +18,7 @@
 
     vm.inProgress = false;
     vm.showAnswers = false;
+    vm.showInfo = false;
     vm.questionCount;
     vm.start = start;
     vm.next = next;
@@ -40,6 +41,7 @@
     }
 
     function next(i) {
+      vm.showInfo = false;
       if(vm.selection != '') {
         vm.selection = vm.selection + ',';
       }
