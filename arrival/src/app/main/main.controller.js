@@ -55,11 +55,12 @@
     }
 
     function reset() {
-      vm.selection = '';
+      /*vm.selection = '';
       vm.hideQuestion = '';
       vm.answers = '';
       vm.showAnswers = false;
-      start();
+      start();*/
+      location.reload();
     }
 
     function countQuestions() {
