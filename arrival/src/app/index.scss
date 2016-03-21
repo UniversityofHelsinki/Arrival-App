@@ -52,6 +52,7 @@ $gray: #979797;
 .hy-link-arrow:before { content: "\EA1B" }
 .hy-hy-info:before { content: "\EA19"; }
 .hy-hy-plus:before { content: "\EA2F"; }
+.hy-rotate-right:before { content: "\EA34"; }
 
 .lora {
   font-family: 'Lora', Georgia, serif;
@@ -189,6 +190,26 @@ button {
 
     &:after {
       //display: none;
+    }
+  }
+
+  &.reset {
+    &:before { content: "\EA34"; }
+  }
+
+  &.theme-transparent {
+    background-color: transparent;
+    color: #178feb;
+    padding-right: 4rem;
+    padding-left: 0rem;
+
+    &:before {
+      width: 3rem;
+      padding-top: 1.6rem;
+    }
+
+    &:after {
+      content: none;
     }
   }
 }
