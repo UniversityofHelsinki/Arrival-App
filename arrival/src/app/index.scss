@@ -245,6 +245,12 @@ footer {
   @extend .container;
 }
 
+disclaimerarea header {
+  height: 53px;
+  line-height: 39px;
+  text-align: center;
+}
+
 .disclaimer-area {
   background-color: white;
   position: fixed;
