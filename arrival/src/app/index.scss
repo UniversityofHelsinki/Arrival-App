@@ -51,6 +51,7 @@ $gray: #979797;
 .hy-hy-logo:before { content: "\EA17" }
 .hy-link-arrow:before { content: "\EA1B" }
 .hy-hy-info:before { content: "\EA19"; }
+.hy-hy-plus:before { content: "\EA2F"; }
 
 .lora {
   font-family: 'Lora', Georgia, serif;
@@ -137,6 +138,7 @@ button {
   border: 0;
   font-size: 1.2em;
   margin-bottom: .5rem;
+  outline: none;
   padding: 1.5rem 7.2rem 1.5rem 2rem;
   position: relative;
 
@@ -145,11 +147,9 @@ button {
     width: 100%;
   }
 
+  &:before,
   &:after {
-    content: ">";
-    display: block;
     position: absolute;
-    background-color: #1073bf;
     top: 0;
     right: 0;
     bottom: 0;
@@ -158,8 +158,20 @@ button {
     padding-top: 1.4rem;
   }
 
-  &.button-back:after {
-    content: "<";
+  &:before {
+    @extend .hy;
+    content: "\EA1B";
+    z-index: 1;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    background-color: #1073bf;
+  }
+
+  &.button-back:before {
+    transform: rotate(180deg);
   }
 
   &:hover {
@@ -171,21 +183,57 @@ button {
   }
 
   &.answer-header {
-    background-color: white;
-    border: 1px solid #178feb;
-    color: #178feb;
+    //background-color: white;
+    //border: 1px solid #178feb;
+    //color: #178feb;
 
     &:after {
-      display: none;
+      //display: none;
     }
   }
 }
 
-.answer-closed + div {
-  display: none;
+.answer-closed {
+  @extend .hide-answer;
 }
-.answer-open + div {
-  display: block;
+
+.answer-open {
+  @extend .show-answer;
+}
+
+answerarea div:first-of-type {
+  .answer-closed {
+    @extend .show-answer;
+  }
+
+  .answer-open {
+    @extend .hide-answer;
+  }
+}
+
+.hide-answer,
+.show-answer {
+  &:before {
+    content: "\EA2F";
+  }
+}
+
+.hide-answer {
+  &:before {
+    transform: rotate(0deg);
+  }
+  + div {
+    display: none;
+  }
+}
+
+.show-answer {
+  &:before {
+    transform: rotate(-45deg);
+  }
+  + div {
+    display: block;
+  }
 }
 
 .prompt {
