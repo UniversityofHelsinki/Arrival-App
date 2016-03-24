@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_is_disclaimer
     - field.field.node.page.field_is_intro
+    - field.field.node.page.field_is_result_intro
     - node.type.page
   module:
     - text
@@ -34,6 +35,15 @@ content:
     type: boolean
   field_is_intro:
     weight: 102
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_is_result_intro:
+    weight: 104
     label: above
     settings:
       format: default

@@ -1,0 +1,23 @@
+uuid: c36a1487-fa0f-44eb-9f08-8ffae0aaa8b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_result_intro
+    - node.type.page
+id: node.page.field_is_result_intro
+field_name: field_is_result_intro
+entity_type: node
+bundle: page
+label: 'Show as result page intro'
+description: 'Check this checkbox if text is used as the intro text of the result page.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

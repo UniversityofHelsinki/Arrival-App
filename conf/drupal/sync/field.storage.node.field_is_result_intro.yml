@@ -1,0 +1,18 @@
+uuid: 29306dea-7cdd-4703-8600-f173979d85c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_is_result_intro
+field_name: field_is_result_intro
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
