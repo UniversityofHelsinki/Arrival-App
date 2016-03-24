@@ -34,8 +34,18 @@ class AppContainerController extends ControllerBase {
    */
   public function mailer(Request $request) {
 
-    $email = $request->get('email');
-    $result = $request->get('result');
+    $content = $request->getContent();
+
+    if (empty($content)) {
+      return new JsonResponse([
+        'status' => 'error',
+      ]);
+    }
+
+    $params = Json::decode($content);
+
+    $email = $params['email'];
+    $result = $params['selection'];
 
     // Handle errors.
     if (!valid_email_address($email) ||
@@ -62,12 +72,22 @@ class AppContainerController extends ControllerBase {
       return $item['nid'];
     }, $hidden);
 
+    $view = views_embed_view('disclaimer', 'rest_export_1', $result);
+    $content = \Drupal::service('renderer')->render($view);
+    $disclaimer = Json::decode($content);
+
+    $view = views_embed_view('intro_email', 'rest_export_1', $result);
+    $content = \Drupal::service('renderer')->render($view);
+    $intro = Json::decode($content);
+
     $result = \Drupal::service('plugin.manager.mail')->mail(
       'angapp',
       'results',
       implode(', ', $to),
       \Drupal::currentUser()->getPreferredLangcode(),
       [
+        'intro' => $intro,
+        'disclaimer' => $disclaimer,
         'nodes' => $nodes,
         'hidden' => $hidden,
       ]

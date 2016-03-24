@@ -16,6 +16,13 @@ function angapp_mail($key, &$message, $params) {
       $step = 1;
       $previous_header = "";
 
+      foreach ($params['intro'] as $row) {
+        $message['body'][] = $row['title'];
+        $message['body'][] = strip_tags($row['body']);
+      }
+
+      $message['body'][] = '----------------';
+
       foreach ($params['nodes'] as $row) {
         if (in_array($row['nid'], $params['hidden'])) {
           continue;
@@ -25,6 +32,13 @@ function angapp_mail($key, &$message, $params) {
           $previous_header = $row['header'];
         }
         $message['body'][] = strip_tags($row['answer']);
+      }
+
+      $message['body'][] = '----------------';
+
+      foreach ($params['disclaimer'] as $row) {
+        $message['body'][] = $row['title'];
+        $message['body'][] = strip_tags($row['body']);
       }
 
       break;

@@ -11,7 +11,7 @@
       templateUrl: 'app/components/answerarea/answerarea.html',
       controller: function ($scope, $http) {
         $scope.sendSubmitter = function () {
-          if ($scope.email.strlen() > 0) {
+          if ($scope.email && $scope.email.length > 0) {
             var data = {
               email: $scope.email,
               selection: $scope.selection
