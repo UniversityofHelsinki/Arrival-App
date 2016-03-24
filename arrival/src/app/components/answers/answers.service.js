@@ -13,10 +13,25 @@
 
     var service = {
       apiHost: apiHost,
-      getAnswer: getAnswer
+      getAnswer: getAnswer,
+      getAnswerIntro: getAnswerIntro
     };
 
     return service;
+
+    function getAnswerIntro() {
+      return $http.get(apiHost + 'intro_results')
+        .then(getAnswerIntroComplete)
+        .catch(getAnswerIntroFailed);
+
+      function getAnswerIntroComplete(response) {
+        return response.data;
+      }
+
+      function getAnswerIntroFailed(error) {
+        $log.error('XHR Failed for getAnswerIntro.\n' + angular.toJson(error.data, true));
+      }
+    }
 
     function getAnswer(selection) {
       getHidden(selection);
