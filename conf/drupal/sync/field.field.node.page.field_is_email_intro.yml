@@ -1,0 +1,23 @@
+uuid: 5a30d3ce-ba42-40be-a504-4dbe8dc241d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_email_intro
+    - node.type.page
+id: node.page.field_is_email_intro
+field_name: field_is_email_intro
+entity_type: node
+bundle: page
+label: 'Show as email intro'
+description: 'Check this checkbox if text is used as the intro text of the email containg the results.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
