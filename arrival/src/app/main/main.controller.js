@@ -13,7 +13,7 @@
     });
 
   /** @ngInject */
-  function MainController($log, introService, questionsService, answersService, disclaimerService) {
+  function MainController($rootScope, $log, introService, questionsService, answersService, disclaimerService) {
     var vm = this;
 
     vm.inProgress = false;
@@ -91,6 +91,7 @@
 
     function getAnswer() {
       vm.showAnswers = true;
+      $rootScope.selection = vm.selection;
       answersService.getAnswer(vm.selection).then(function(data) {
         vm.answers = data;
       });
