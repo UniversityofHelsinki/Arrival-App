@@ -7,6 +7,10 @@
 </div>
 
 <div class="answer-area container" ng-show="main.showAnswers">
+  <div ng-if="main.answerintro">
+    <h1 ng-bind-html="main.answerintro.title"></h1>
+    <div ng-bind-html="main.answerintro.body"></div>
+  </div>
   <answerarea/>
 </div>
 

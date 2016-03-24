@@ -36,6 +36,7 @@
       countQuestions();
       vm.qid = 1;
       getIntro();
+      getAnswerIntro();
       getQuestion();
       getDisclaimer();
     }
@@ -93,6 +94,12 @@
       vm.showAnswers = true;
       answersService.getAnswer(vm.selection).then(function(data) {
         vm.answers = data;
+      });
+    }
+
+    function getAnswerIntro() {
+      answersService.getAnswerIntro().then(function(data) {
+        vm.answerintro = data[0];
       });
     }
 

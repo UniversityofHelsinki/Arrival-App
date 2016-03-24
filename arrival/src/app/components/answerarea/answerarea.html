@@ -1,4 +1,3 @@
-<h1>Results:<br>Relocation task list</h1>
 <div ng-repeat="answer in main.answers track by answer.nid">
   <button class="answer-header button-wide" ng-if="answer.newcategory" ng-class="{true: 'answer-closed', false: 'answer-open'}[!this.answerstatus]" ng-click="this.answerstatus = !this.answerstatus">
     {{answer.displayheader}}
