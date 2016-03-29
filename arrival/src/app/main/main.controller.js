@@ -29,6 +29,10 @@
     vm.toggleDisclaimer = function() {
       vm.showDisclaimer = !vm.showDisclaimer;
     }
+    vm.showEmailModal = false;
+    vm.toggleEmailModal = function() {
+      vm.showEmailModal = !vm.showEmailModal;
+    }
 
     start();
 

@@ -1,9 +1,28 @@
-<h1>Results:<br>Relocation task list</h1>
+<div class="email-modal-launcher">
+  <button type="button" class="mail theme-transparent ng-click-active" ng-click="main.toggleEmailModal()">
+    Email this list to
+  </button>
+</div>
 
-<form name="emailForm" ng-submit="sendSubmitter()">
-  <input type="email" ng-model="email"/>
-  <input type="submit" class="btn btn-primary" value="Send to my email"/>
-</form>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-class="main.showEmailModal ? 'in' : ''">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <p>Please enter your email address</p>
+      <form name="emailForm" ng-submit="sendSubmitter()" class="email-form row">
+        <div class="col-xs-8">
+          <input type="email" ng-model="email" required="required" class="input-field-email" />
+        </div>
+        <div class="col-xs-4">
+          <input type="submit" class="button button-wide button-send-email" value="Send"/>
+        </div>
+      </form>
+      <div class="messages email-notif status">
+        <p>Email has been sent! Please check your inbox.</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-bg" ng-click="main.toggleEmailModal()"></div>
+</div>
 
 <div ng-repeat="answer in main.answers track by answer.nid">
   <button class="answer-header button-wide" ng-if="answer.newcategory" ng-class="{true: 'answer-closed', false: 'answer-open'}[!this.answerstatus]" ng-click="this.answerstatus = !this.answerstatus">
