@@ -24,11 +24,16 @@
   <div class="modal-bg" ng-click="main.toggleEmailModal()"></div>
 </div>
 
-<div ng-repeat="answer in main.answers track by answer.nid">
-  <button class="answer-header button-wide" ng-if="answer.newcategory" ng-class="{true: 'answer-closed', false: 'answer-open'}[!this.answerstatus]" ng-click="this.answerstatus = !this.answerstatus">
-    {{answer.displayheader}}
-  </button>
-  <div ng-bind-html="answer.answer | addTargetBlank" ng-if="answer.newcategory"></div>
+<div ng-cloak ng-repeat="answer in main.answers track by answer.nid">
+  <span ng-if="answer.displayheader != ''">
+    <button class="answer-header button-wide" ng-if="answer.newcategory" ng-class="{true: 'answer-closed', false: 'answer-open'}[!this.answerstatus]" ng-click="this.answerstatus = !this.answerstatus">
+      {{answer.displayheader}}
+    </button>
+    <div ng-bind-html="answer.answer | addTargetBlank" ng-if="answer.newcategory"></div>
+  </span>
+  <span ng-if="answer.displayheader == ''">
+    <div ng-bind-html="answer.answer | addTargetBlank" ng-if="answer.newcategory"></div>
+  </span>
 </div>
 <div>
   <button class="reset theme-transparent" ng-click="main.reset()">Back to start</button>

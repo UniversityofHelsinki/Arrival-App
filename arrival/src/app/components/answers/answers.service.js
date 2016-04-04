@@ -79,6 +79,8 @@
           i++;
         });
 
+        if (n < 3) listGuides[0].displayheader = '';
+
         function isHidden(aid) {
           var i = 0;
           var isHidden = false;
