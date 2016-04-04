@@ -55,6 +55,7 @@ $gray: #979797;
 .hy-rotate-right:before { content: "\EA34"; }
 .hy-done:before { content: "\EA0B"; }
 .hy-mail:before { content: "\EA3F"; }
+.hy-minus:before { content: "\EA24"; }
 
 .lora {
   font-family: 'Lora', Georgia, serif;
@@ -239,16 +240,9 @@ answerarea div:first-of-type {
   }
 }
 
-.hide-answer,
-.show-answer {
-  &:before {
-    content: "\EA2F";
-  }
-}
-
 .hide-answer {
   &:before {
-    transform: rotate(0deg);
+    content: "\EA2F";
   }
   + div {
     display: none;
@@ -257,7 +251,7 @@ answerarea div:first-of-type {
 
 .show-answer {
   &:before {
-    transform: rotate(-45deg);
+    content: "\EA24";
   }
   + div {
     display: block;
