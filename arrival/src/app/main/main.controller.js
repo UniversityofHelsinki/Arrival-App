@@ -17,12 +17,16 @@
     var vm = this;
 
     vm.inProgress = false;
+    vm.showProgress = false;
+    vm.progressList = [];
+    vm.currentQuestion = '';
     vm.showQuestion = false;
     vm.showAnswers = false;
     vm.showInfo = false;
     vm.questionCount;
     vm.start = start;
     vm.next = next;
+    vm.saveAnswer = saveAnswer;
     vm.reset = reset;
     vm.selection = '';
     vm.hideQuestion = '';
@@ -47,6 +51,7 @@
     }
 
     function next(i) {
+      vm.showProgress = true;
       vm.showQuestion = false;
       vm.showInfo = false;
       if(vm.selection != '') {
@@ -79,6 +84,18 @@
       });
     }
 
+    function saveQuestion(question) {
+      vm.currentQuestion = question;
+    }
+
+    function saveAnswer(answer) {
+      vm.progressList.push({
+        question: vm.currentQuestion,
+        answer: answer
+      });
+      //$log.debug(answer);
+    }
+
     function getQuestion() {
       questionsService.getQuestion(vm.qid).then(function(data) {
         if (data[0].hide != '' && vm.selection != '') { //check if there might be something to hide
@@ -95,6 +112,7 @@
         vm.options = data[0].options.split('||');
         vm.optionIds = data[0].option_ids.split('||');
         vm.question = data[0].question;
+        if (vm.qid != 0) saveQuestion(data[0].question);
         vm.info = data[0].info;
       });
     }

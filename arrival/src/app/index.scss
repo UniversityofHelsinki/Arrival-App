@@ -64,6 +64,7 @@ $gray: #979797;
 }
 
 body {
+  background-color: white;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -365,6 +366,43 @@ disclaimerarea header {
       bottom: -1px;
       position: relative;
     }
+  }
+}
+
+.progress-area-container {
+  margin-top: 1em;
+
+  > div {
+    background-color: #b2e576;
+    color: #222;
+  }
+}
+
+progressarea {
+  > div {
+    margin-bottom: .5rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.progress-title {
+  padding: 1rem 2rem 0;
+}
+
+.progress-title,
+.progress-question {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.progress-item {
+  font-size: .8em;
+}
+
+@media (min-width: 1024px) {
+  progressarea {
+    display: flex;
+    flex-flow: row;
   }
 }
 
