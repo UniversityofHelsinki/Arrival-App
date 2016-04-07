@@ -375,13 +375,14 @@ disclaimerarea header {
   > div {
     background-color: #b2e576;
     color: #222;
+    padding-bottom: .5rem;
   }
 }
 
 progressarea {
   > div {
     margin-bottom: .5rem;
-    padding: 1rem 2rem;
+    padding: .5rem 2rem;
   }
 }
 
@@ -403,6 +404,10 @@ progressarea {
   progressarea {
     display: flex;
     flex-flow: row;
+
+    > div {
+      padding: 1rem 2rem .5rem;
+    }
   }
 }
 
