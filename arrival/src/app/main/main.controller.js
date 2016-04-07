@@ -13,10 +13,11 @@
     });
 
   /** @ngInject */
-  function MainController($rootScope, $log, introService, questionsService, answersService, disclaimerService) {
+  function MainController($rootScope, $log, $timeout, introService, questionsService, answersService, disclaimerService) {
     var vm = this;
 
     vm.inProgress = false;
+    vm.showQuestion = false;
     vm.showAnswers = false;
     vm.showInfo = false;
     vm.questionCount;
@@ -46,6 +47,7 @@
     }
 
     function next(i) {
+      vm.showQuestion = false;
       vm.showInfo = false;
       if(vm.selection != '') {
         vm.selection = vm.selection + ',';
@@ -79,10 +81,6 @@
 
     function getQuestion() {
       questionsService.getQuestion(vm.qid).then(function(data) {
-        vm.question = data[0].question;
-        vm.info = data[0].info;
-        vm.options = data[0].options.split('||');
-        vm.optionIds = data[0].option_ids.split('||');
         if (data[0].hide != '' && vm.selection != '') { //check if there might be something to hide
           vm.hideQuestion = data[0].hide.split('||');
           for (var i = 0; i < vm.hideQuestion.length; i++) {
@@ -91,7 +89,18 @@
             }
           }
         }
+        $timeout(function() {
+          displayQuestion();
+        }, 500);
+        vm.options = data[0].options.split('||');
+        vm.optionIds = data[0].option_ids.split('||');
+        vm.question = data[0].question;
+        vm.info = data[0].info;
       });
+    }
+
+    function displayQuestion() {
+      vm.showQuestion = true;
     }
 
     function getAnswer() {
