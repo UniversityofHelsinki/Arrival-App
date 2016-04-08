@@ -124,6 +124,7 @@
     function getAnswer() {
       vm.showAnswers = true;
       $rootScope.selection = vm.selection;
+      $rootScope.progressList = vm.progressList;
       answersService.getAnswer(vm.selection).then(function(data) {
         vm.answers = data;
       });

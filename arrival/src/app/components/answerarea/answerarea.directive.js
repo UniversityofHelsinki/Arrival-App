@@ -14,7 +14,8 @@
           if ($scope.email && $scope.email.length > 0) {
             var data = {
               email: $scope.email,
-              selection: $scope.selection
+              selection: $scope.selection,
+              progress: $scope.progressList
             };
             $http.post('/mailer', data);
           }

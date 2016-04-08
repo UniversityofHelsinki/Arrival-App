@@ -46,6 +46,7 @@ class AppContainerController extends ControllerBase {
 
     $email = $params['email'];
     $result = $params['selection'];
+    $progress = $params['progress'];
 
     // Handle errors.
     if (!valid_email_address($email) ||
@@ -86,6 +87,7 @@ class AppContainerController extends ControllerBase {
       implode(', ', $to),
       \Drupal::currentUser()->getPreferredLangcode(),
       [
+        'progress' => $progress,
         'intro' => $intro,
         'disclaimer' => $disclaimer,
         'nodes' => $nodes,
@@ -93,10 +95,16 @@ class AppContainerController extends ControllerBase {
       ]
     );
 
-    return new JsonResponse([
-      'status' => 'ok',
-    //  'result' => $result
-    ]);
+    if ($result['result'] === TRUE) {
+      return new JsonResponse([
+        'status' => 'ok'
+      ]);
+    }
+    else {
+      return new JsonResponse([
+        'status' => 'error'
+      ]);
+    }
   }
 
 }
