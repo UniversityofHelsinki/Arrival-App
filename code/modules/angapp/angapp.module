@@ -16,8 +16,6 @@ function angapp_mail($key, &$message, $params) {
       $step = 1;
       $previous_header = "";
 
-      $message['body'][] = '----------------';
-
       foreach ($params['intro'] as $row) {
         $message['body'][] = $row['title'];
         $message['body'][] = strip_tags($row['body']);
