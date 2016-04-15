@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Component\Utility\SafeMarkup;
+
 /**
  * Implements hook_mail().
  */
@@ -12,22 +14,27 @@ function angapp_mail($key, &$message, $params) {
       // Prepare subject and body.
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Your Uni Arrival Advisor Steps';
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
 
       $step = 1;
       $previous_header = "";
+      $separator = '<br/>';
 
       foreach ($params['intro'] as $row) {
         $message['body'][] = $row['title'];
-        $message['body'][] = strip_tags($row['body']);
+        $message['body'][] = $row['body'];
       }
 
-      $message['body'][] = '----------------';
+      $message['body'][] = $separator;
 
+      $list = '<ul>';
       foreach ($params['progress'] as $row) {
-        $message['body'][] = strip_tags($row['question']) . ': ' . ($row['answer']);
+        $list .= '<li>' . SafeMarkup::checkPlain($row['question'] . ': ' . ($row['answer'])) . '</li>';
       }
+      $list .= '</ul>';
+      $message['body'][] = $list;
 
-      $message['body'][] = '----------------';
+      $message['body'][] = $separator;
 
       foreach ($params['nodes'] as $row) {
         if (in_array($row['nid'], $params['hidden'])) {
@@ -37,16 +44,26 @@ function angapp_mail($key, &$message, $params) {
           $message['body'][] = "Step " . $step++ . ":";
           $previous_header = $row['header'];
         }
-        $message['body'][] = strip_tags($row['answer']);
+        $message['body'][] = $row['answer'];
       }
 
-      $message['body'][] = '----------------';
+      $message['body'][] = $separator;
 
       foreach ($params['disclaimer'] as $row) {
         $message['body'][] = $row['title'];
-        $message['body'][] = strip_tags($row['body']);
+        $message['body'][] = $row['body'];
       }
+
+      $message['body'] = [SafeMarkup::checkPlain(implode($message['body']))];
 
       break;
   }
+}
+
+
+/**
+ * Implements hook_mail_alter().
+ */
+function angapp_mail_alter(&$message) {
+
 }
