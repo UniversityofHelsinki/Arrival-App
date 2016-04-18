@@ -18,34 +18,36 @@ function angapp_mail($key, &$message, $params) {
 
       foreach ($params['intro'] as $row) {
         $message['body'][] = $row['title'];
-        $message['body'][] = strip_tags($row['body']);
+        $message['body'][] = $row['body'];
       }
 
-      $message['body'][] = '----------------';
+      $message['body'][] = '<h3 style="color:black;text-transform:uppercase;">Your selections:</h3><ul style="border-bottom:1px dashed black;color:black;padding-bottom:15px;padding-left:0;">';
 
       foreach ($params['progress'] as $row) {
-        $message['body'][] = strip_tags($row['question']) . ': ' . ($row['answer']);
+        $message['body'][] = '<li style="margin-bottom:.5em;"><b style:"text-transform:uppercase;">' . $row['question'] . ':</b><br> ' . $row['answer'] . '</li>';
       }
 
-      $message['body'][] = '----------------';
+      $message['body'][] = '</ul><p style="color:black !important;">';
 
       foreach ($params['nodes'] as $row) {
         if (in_array($row['nid'], $params['hidden'])) {
           continue;
         }
         if ($previous_header != $row['header']) {
-          $message['body'][] = "Step " . $step++ . ":";
+          $message['body'][] = '<h1 style="color:black;text-transform:uppercase;">Step ' . $step++ . ':</h1>';
           $previous_header = $row['header'];
         }
-        $message['body'][] = strip_tags($row['answer']);
+        $message['body'][] = '<p style="color:black;">' . $row['answer'] . '</p>';
       }
 
-      $message['body'][] = '----------------';
+      $message['body'][] = '<p style="border-top: 1px dashed black;">';
 
       foreach ($params['disclaimer'] as $row) {
-        $message['body'][] = $row['title'];
-        $message['body'][] = strip_tags($row['body']);
+        $message['body'][] = '<h3 style="color:gray;text-transform:uppercase;">' . $row['title'] . '</h3>';
+        $message['body'][] = '<p style="color:gray;font-size.9em;"' . $row['body'] . '</p>';
       }
+
+      $message['body'][] = '</p>';
 
       break;
   }
