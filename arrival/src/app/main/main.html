@@ -25,6 +25,10 @@
   <disclaimerarea/>
 </div>
 
+<div class="container" ng-show="main.inProgress">
+  <button class="reset theme-transparent" ng-click="main.reset()">Back to start</button>
+</div>
+
 <footer ng-if="main.disclaimer">
   <span class="prompt prompt-clickable" ng-click="main.toggleDisclaimer()">Legal disclaimer</span>
 </footer>
