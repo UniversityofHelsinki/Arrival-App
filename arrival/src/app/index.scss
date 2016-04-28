@@ -301,7 +301,12 @@ answerarea div:first-of-type {
 }
 
 footer {
-  @extend .container;
+  background-color: #222;
+  color: white;
+
+  > div {
+    @extend .container;
+  }
 }
 
 disclaimerarea header {
