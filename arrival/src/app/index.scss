@@ -64,8 +64,13 @@ $gray: #979797;
 }
 
 body {
-  background-color: white;
+  background-color: #222;
   font-family: "Open Sans", sans-serif;
+}
+
+.main-content {
+  background-color: white;
+  padding-bottom: 3rem;
 }
 
 .browsehappy {
