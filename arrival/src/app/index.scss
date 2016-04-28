@@ -88,7 +88,7 @@ body {
 }
 
 header {
-  background-color: black;
+  background-color: #222;
   color: white;
   padding: .5em;
   text-transform: uppercase;
@@ -99,12 +99,37 @@ header {
     @extend .hy-hy-logo;
     float: left;
     margin-right: .5em;
+
+    &:before {
+      font-size: 54px;
+      position: absolute;
+      top: 0;
+      line-height: 70px;
+    }
   }
 
   .brand-title {
-    font-weight: 800;
-    height: 39px;
-    line-height: 39px;
+    color: white;
+    height: 56px;
+    line-height: 56px;
+    font-size: 14px;
+    padding-left: 65px;
+    letter-spacing: -.05em;
+    font-weight: bold;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:visited {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .brand-title {
+    font-size: 17px;
   }
 }
 
