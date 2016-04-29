@@ -468,6 +468,11 @@ footer {
       height: 0;
       overflow: hidden;
     }
+
+    @media (min-width: 62.5em) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .logo {
@@ -571,6 +576,7 @@ footer {
         width: 33.33333%;
         clear: right;
         float: right;
+        margin-right: -20px;
       }
     }
   }
