@@ -455,7 +455,7 @@ footer {
   background-color: #222;
   color: white;
   overflow: hidden;
-  padding: 3em 0 10px 0;
+  padding: 0 0 10px 0;
   text-align: center;
 
   .l-region {
@@ -521,6 +521,7 @@ footer {
     h4 {
       font-size: 16px;
       color: white;
+      letter-spacing: -.8px;
       text-align: center;
     }
 
@@ -583,6 +584,8 @@ footer {
 }
 
 .footer-block {
+  font-size: 16px;
+
   &.footer-block-1 {
     border-bottom: 1px solid #151515;
     padding-top: 2.2em;
