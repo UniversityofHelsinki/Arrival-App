@@ -631,6 +631,66 @@ footer {
     padding-left: 2px;
     text-align: center;
     width: 50px;
+
+    &:before {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: "hy-icons";
+      content: "\EA12";
+    }
+
+    &:hover {
+      background-color: #476ead;
+      text-decoration: none;
+    }
+
+    &.twitter {
+     background-color: #5ea9dd;
+
+      &:hover {
+        background-color: #499ed9;
+      }
+
+      &:before {
+        content: "\EA39";
+      }
+    }
+
+    &.youtube {
+      background-color: #e6644a;
+
+      &:hover {
+        background-color: #e35134;
+      }
+
+      &:before {
+        content: "\EA3D";
+      }
+    }
+
+    &.linkedin {
+      background-color: #1483c4;
+
+      &:hover {
+        background-color: #1274ad;
+      }
+
+      &:before {
+        content: "\EA1C";
+      }
+    }
+
+    &.instagram {
+      background-color: #125688;
+
+      &:hover {
+        background-color: #0f4871;
+      }
+
+      &:before {
+        content: "\EA48";
+      }
+    }
   }
 
   @media (min-width: 48em) {
@@ -667,66 +727,6 @@ footer {
       width: 40px;
       line-height: 40px;
       font-size: 22px;
-
-      &:before {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: "hy-icons";
-        content: "\EA12";
-      }
-
-      &:hover {
-        background-color: #476ead;
-        text-decoration: none;
-      }
-
-      &.twitter {
-       background-color: #5ea9dd;
-
-        &:hover {
-          background-color: #499ed9;
-        }
-
-        &:before {
-          content: "\EA39";
-        }
-      }
-
-      &.youtube {
-        background-color: #e6644a;
-
-        &:hover {
-          background-color: #e35134;
-        }
-
-        &:before {
-          content: "\EA3D";
-        }
-      }
-
-      &.linkedin {
-        background-color: #1483c4;
-
-        &:hover {
-          background-color: #1274ad;
-        }
-
-        &:before {
-          content: "\EA1C";
-        }
-      }
-
-      &.instagram {
-        background-color: #125688;
-
-        &:hover {
-          background-color: #0f4871;
-        }
-
-        &:before {
-          content: "\EA48";
-        }
-      }
     }
   }
 
@@ -785,7 +785,7 @@ a.list-of-links__link,
   }
 
   &:hover {
-    color: #ccc;
+    color: #ccc !important;
     text-decoration: none;
   }
 }
