@@ -725,12 +725,18 @@ a.list-of-links__link,
   &:after {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: "icomoon";
-    content: "\f061";
+    font-family: "hy-icons";
+    content: "\EA1B";
     color: inherit;
     font-weight: 200;
     height: 100%;
     margin-left: 1em;
+    float: right;
+  }
+
+  &:hover {
+    color: #ccc;
+    text-decoration: none;
   }
 }
 
