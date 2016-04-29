@@ -458,6 +458,18 @@ footer {
   padding: 0 0 10px 0;
   text-align: center;
 
+  h4 {
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif,Nimbus Sans L;
+    color: #424242;
+    font-weight: bold;
+    letter-spacing: -.05em;
+    line-height: 1.1em;
+    margin: 0;
+    padding-bottom: .4em;
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
+
   .l-region {
     @extend .container;
 
@@ -492,6 +504,7 @@ footer {
 
     .site-logo:before {
       font-size: 100px;
+      left: 0;
       line-height: 95px;
     }
   }
@@ -619,13 +632,20 @@ footer {
     text-align: center;
     width: 50px;
   }
+
   @media (min-width: 48em) {
+    width: 30.42857%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none;
+
     &.footer-block-1 {
       border: 0 none;
       padding-bottom: 0;
     }
     &.footer-block-2 {
-      width: 31.42857%;
+      width: 30.42857%;
       float: left;
       margin-right: -100%;
       margin-left: 34.28571%;
@@ -633,7 +653,7 @@ footer {
     }
 
     &.footer-block-3 {
-      width: 31.42857%;
+      width: 32.42857%;
       float: right;
       margin-left: 0;
       margin-right: 0;
@@ -651,39 +671,60 @@ footer {
       &:before {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-family: "icomoon";
-        content: "\f09a";
+        font-family: "hy-icons";
+        content: "\EA12";
+      }
+
+      &:hover {
+        background-color: #476ead;
+        text-decoration: none;
       }
 
       &.twitter {
        background-color: #5ea9dd;
 
+        &:hover {
+          background-color: #499ed9;
+        }
+
         &:before {
-          content: "\f099";
+          content: "\EA39";
         }
       }
 
       &.youtube {
         background-color: #e6644a;
 
+        &:hover {
+          background-color: #e35134;
+        }
+
         &:before {
-          content: "\f167";
+          content: "\EA3D";
         }
       }
 
       &.linkedin {
         background-color: #1483c4;
 
+        &:hover {
+          background-color: #1274ad;
+        }
+
         &:before {
-          content: "\f0e1";
+          content: "\EA1C";
         }
       }
 
       &.instagram {
         background-color: #125688;
 
+        &:hover {
+          background-color: #0f4871;
+        }
+
         &:before {
-          content: "\f16d";
+          content: "\EA48";
         }
       }
     }
