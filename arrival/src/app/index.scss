@@ -63,9 +63,26 @@ $gray: #979797;
   font-style: italic;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #222;
   font-family: "Open Sans", sans-serif;
+
+  @media(min-width: 48em) {
+    min-height: 100%;
+    padding-bottom: 271px;
+    position: relative;
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
 }
 
 .main-content {
