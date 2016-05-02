@@ -115,6 +115,10 @@ header {
   padding: .5em;
   text-transform: uppercase;
 
+  .brand a:hover {
+    text-decoration: none;
+  }
+
   .brand-logo {
     @extend .hy;
     @extend .hy-2x;
