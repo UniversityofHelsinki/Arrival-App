@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_options
     - node.type.select
+    - taxonomy.vocabulary.options_list
 id: node.select.field_options
 field_name: field_options
 entity_type: node
@@ -17,5 +18,10 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
-  handler_settings: {  }
+  handler_settings:
+    target_bundles:
+      options_list: options_list
+    sort:
+      field: _none
+    auto_create: false
 field_type: entity_reference
