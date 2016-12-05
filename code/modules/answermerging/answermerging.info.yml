@@ -1,0 +1,6 @@
+name: Answer merging module
+type: module
+description: Merge answers and hideanswers views as one
+core: 8.x
+package: Other
+

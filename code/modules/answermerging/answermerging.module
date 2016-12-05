@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+
+function answermerging_views_pre_render(ViewExecutable $view) {
+
+  // first to make sure we only do stuff when we are in the proper view
+  if($view->id() == 'answer') {
+
+    // some helper stuff
+    $result = $view->result;
+    $args = $view->args;
+
+    // fetch all the results from hide view
+    $hide_view = \Drupal\views\Views::getView('hideanswers');
+    $hide_view->setDisplay('rest_export_1');
+    $hide_view->setArguments($args);
+    $hide_view->execute();
+    $hide_view->serialize();
+    $hide_result = $hide_view->result;
+
+    // we loop trough all the results and hide everything
+    foreach ($result as $key => $value) {
+      foreach ($hide_result as $hide_key => $hide_value) {
+        if ($value->nid == $hide_value->nid) {
+          unset($result[$key]);
+        }
+      }
+    }
+
+    // set original view results for the ones we've modified
+    $view->result = $result;
+  }
+}
