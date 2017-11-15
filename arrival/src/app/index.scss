@@ -851,6 +851,12 @@ a.list-of-links__link,
   }
 }
 
+.toggle-info:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 2px 3px rgba(59, 153, 252, .5);
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
