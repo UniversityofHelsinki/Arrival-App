@@ -1,0 +1,77 @@
+name: uniarrival
+recipe: drupal8
+
+config:
+  via: apache
+  xdebug: false
+  config:
+    php: .lando/php.ini
+
+services:
+  adminer:
+    type: compose
+    services:
+      image: dehy/adminer
+      command: /bin/s6-svscan /etc/services.d
+    run_as_root:
+      - /app/.lando/adminer.sh
+    portforward: true
+  appserver:
+    type: 'php:5.6'
+    webroot: drupal
+    build:
+      - composer install
+    overrides:
+      environment:
+        WKV_SITE_ENV: lando
+        HASH_SALT: notsosecurehash
+  database:
+    type: 'mariadb:10.1'
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  node:
+    type: node
+    globals:
+      gulp-cli: latest
+      bower: latest
+    build:
+      - /app/.lando/node.sh
+
+tooling:
+  bower:
+    service: node
+  gulp:
+    service: node
+  node:
+    service: node
+  npm:
+    service: node
+  production:
+    description: Builds production package
+    cmd:
+      - appserver: /app/.lando/production.sh
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for apache.
+    cmd: "docker-php-ext-enable xdebug && /etc/init.d/apache2 reload"
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for apache.
+    cmd: "rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload"
+    user: root
+
+proxy:
+  mailhog:
+    - mail-uniarrival.lndo.site
+  adminer:
+    - adminer-uniarrival.lndo.site
+
+events:
+  post-db-import:
+    - appserver: cd $LANDO_WEBROOT && drush cr -y && drush uli
+
+# Lando version.
+version: v3.0.0-rc.23
