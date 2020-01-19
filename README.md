@@ -15,8 +15,8 @@ The [Uni Arrival Advisor](https://uniarrival.helsinki.fi/) will guide you throug
 
 ### Services
 
-- <https://adminer-arrival.lndo.site> - Adminer for database management, log in **without** entering the credentials.
-- <https://mail-arrival.lndo.site> - Mailhog for mail management.
+- <https://adminer-uniarrival.lndo.site> - Adminer for database management, log in **without** entering the credentials.
+- <https://mail-uniarrival.lndo.site> - Mailhog for mail management.
 
 ### Tools
 
