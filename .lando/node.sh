@@ -6,10 +6,10 @@ npm install
 bower install
 gulp
 
-cd /app/drupal
+cd /app/web
 ln -sf ../arrival/dist app
 
-cd /app/drupal/sites/default
+cd /app/web/sites/default
 ln -sf ../../../files files
 
 cd /app/

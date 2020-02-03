@@ -18,7 +18,7 @@ services:
     portforward: true
   appserver:
     type: 'php:7.2'
-    webroot: drupal
+    webroot: web
     build:
       - composer install
     overrides:
