@@ -71,7 +71,7 @@ proxy:
 
 events:
   post-db-import:
-    - appserver: cd $LANDO_WEBROOT && drush cr -y && drush uli
+    - appserver: cd $LANDO_WEBROOT && drush @local cr -y && drush @local uli
 
 # Lando version.
 version: v3.0.0-rc.23
