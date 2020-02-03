@@ -22,6 +22,7 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_category:
     weight: 103
     label: above
@@ -29,6 +30,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_hide_when:
     weight: 105
     label: above
@@ -36,6 +38,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_show_when:
     weight: 104
     label: above
@@ -43,6 +46,10 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   links:
     weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

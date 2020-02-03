@@ -25,6 +25,7 @@ content:
     weight: 100
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_is_disclaimer:
     weight: 103
     label: above
@@ -34,6 +35,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_is_email_intro:
     weight: 105
     label: above
@@ -43,6 +45,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_is_intro:
     weight: 102
     label: above
@@ -52,6 +55,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_is_result_intro:
     weight: 104
     label: above
@@ -61,6 +65,10 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   links:
     weight: 101
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

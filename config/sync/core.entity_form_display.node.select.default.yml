@@ -22,23 +22,35 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
+    region: content
   field_hide_select_when:
     weight: 28
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
   field_options:
     weight: 26
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
   field_select_number:
     weight: 27
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 1
@@ -46,6 +58,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden:
   created: true
   path: true

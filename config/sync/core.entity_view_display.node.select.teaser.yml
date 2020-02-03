@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.select.body
+    - field.field.node.select.field_hide_select_when
+    - field.field.node.select.field_options
+    - field.field.node.select.field_select_number
     - node.type.select
   module:
     - text
@@ -21,8 +24,13 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_hide_select_when: true
   field_options: true
   field_select_number: true

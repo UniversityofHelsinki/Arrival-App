@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
     - image
     - user
@@ -16,12 +17,24 @@ mode: default
 content:
   account:
     weight: -10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   contact:
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   language:
     weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   timezone:
     weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:
@@ -29,4 +42,5 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     weight: -1
+    region: content
 hidden: {  }

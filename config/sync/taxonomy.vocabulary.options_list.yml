@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Options List'
 vid: options_list
 description: ''
-hierarchy: 0
 weight: 0
