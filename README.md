@@ -23,6 +23,7 @@ The [Uni Arrival Advisor](https://uniarrival.helsinki.fi/) will guide you throug
 Full commands/tools overview is available by running `lando`. Custom tools:
 
 - `lando bower`, `lando gulp`, `lando npm` - frontend tooling,
+- `lando update` - update local database,
 - `lando xdebug-on` - enables xdebug,
 - `lando xdebug-off` - disables xdebug.
 

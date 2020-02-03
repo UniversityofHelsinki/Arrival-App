@@ -49,9 +49,13 @@ tooling:
   npm:
     service: node
   production:
-    description: Builds production package
+    description: Build production package.
     cmd:
       - appserver: /app/.lando/production.sh
+  update:
+    description: Update local database.
+    cmd:
+      - appserver: /app/.lando/update.sh
   xdebug-on:
     service: appserver
     description: Enable xdebug for apache.
