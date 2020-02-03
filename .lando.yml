@@ -17,7 +17,7 @@ services:
       - /app/.lando/adminer.sh
     portforward: true
   appserver:
-    type: 'php:5.6'
+    type: 'php:7.2'
     webroot: drupal
     build:
       - composer install
