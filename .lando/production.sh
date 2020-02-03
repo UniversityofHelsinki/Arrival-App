@@ -17,7 +17,8 @@ cp -a /app/arrival/dist/ /app/production/drupal/app/
 cp -a /app/web/.htaccess /app/production/drupal/.htaccess
 cp -a /app/web/index.php /app/production/drupal/index.php
 cp -a /app/web/autoload.php /app/production/drupal/autoload.php
-cp -a /app/conf/prod.settings.php /app/production/drupal/sites/default/settings.php
+cp -a /app/conf/prod.settings.php /app/production/drupal/sites/default/settings.local.php
+cp -a /app/web/sites/default/settings.php /app/production/drupal/sites/default/settings.php
 cd /app/production/drupal/sites/default
 ln -sf ../../../files files
 
