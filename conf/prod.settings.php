@@ -15,7 +15,4 @@ $settings['trusted_host_patterns'] = array(
   '^uniarrival\.helsinki\.fi$',
 );
 
-$settings['install_profile'] = 'config_installer';
-$config_directories['sync'] = DRUPAL_ROOT . '/../config/sync';
 $settings['hash_salt'] = '_Yfo_5ZbqO2oOOrypjh7QlMMmnpkeA2_Egvdn09ZTAa3ajv19494SKvJ06NZcsdb_2piGYqqGA';
-

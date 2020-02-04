@@ -16,6 +16,4 @@ $databases['default']['default'] = array(
 
 $conf['drupal_http_request_fails'] = FALSE;
 
-$settings['install_profile'] = 'config_installer';
-$config_directories['sync'] = DRUPAL_ROOT . '/../config/sync';
 $settings['hash_salt'] = '_Yfo_5ZbqO2oOOrypjh7QlMMmnpkeA2_Egvdn09ZTAa3ajv19494SKvJ06NZcsdb_2piGYqqGA';

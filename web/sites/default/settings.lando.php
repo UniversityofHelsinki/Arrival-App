@@ -26,9 +26,3 @@ $settings['trusted_host_patterns'] = ['.*'];
 
 // Generate hash_salt variable.
 $settings['hash_salt'] = md5(getenv('LANDO_HOST_IP'));
-
-// Define install_profile.
-$settings['install_profile'] = 'config_installer';
-
-// Define config_directories path.
-$config_directories['sync'] = '../config/sync';

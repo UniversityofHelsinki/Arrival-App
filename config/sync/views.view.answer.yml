@@ -9,6 +9,7 @@ dependencies:
   module:
     - node
     - rest
+    - serialization
     - text
     - user
 id: answer
@@ -18,7 +19,6 @@ description: ''
 tag: ''
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -275,7 +275,7 @@ display:
           plugin_id: field
       filters:
         status:
-          value: true
+          value: '1'
           table: node_field_data
           field: status
           plugin_id: boolean
@@ -284,6 +284,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         type:
           id: type
@@ -294,6 +296,9 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
       sorts:
         field_category_target_id:
           id: field_category_target_id
@@ -391,9 +396,8 @@ display:
       style:
         type: serializer
         options:
-          grouping: {  }
-          uses_fields: false
-          formats: {  }
+          formats:
+            json: json
       row:
         type: data_field
         options:
@@ -404,6 +408,7 @@ display:
             body:
               alias: answer
               raw_output: false
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:

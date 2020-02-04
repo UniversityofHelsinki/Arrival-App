@@ -17,8 +17,8 @@ services:
       - /app/.lando/adminer.sh
     portforward: true
   appserver:
-    type: 'php:5.6'
-    webroot: drupal
+    type: 'php:7.2'
+    webroot: web
     build:
       - composer install
     overrides:
@@ -49,9 +49,13 @@ tooling:
   npm:
     service: node
   production:
-    description: Builds production package
+    description: Build production package.
     cmd:
       - appserver: /app/.lando/production.sh
+  update:
+    description: Update local database.
+    cmd:
+      - appserver: /app/.lando/update.sh
   xdebug-on:
     service: appserver
     description: Enable xdebug for apache.
@@ -71,7 +75,7 @@ proxy:
 
 events:
   post-db-import:
-    - appserver: cd $LANDO_WEBROOT && drush cr -y && drush uli
+    - appserver: cd $LANDO_WEBROOT && drush @local cr -y && drush @local uli
 
 # Lando version.
 version: v3.0.0-rc.23

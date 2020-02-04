@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_is_disclaimer
+    - field.field.node.page.field_is_email_intro
+    - field.field.node.page.field_is_intro
+    - field.field.node.page.field_is_result_intro
     - node.type.page
   module:
     - text
@@ -23,8 +27,14 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 101
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_is_disclaimer: true
+  field_is_email_intro: true
   field_is_intro: true
+  field_is_result_intro: true
