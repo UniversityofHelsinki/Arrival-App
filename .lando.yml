@@ -52,6 +52,10 @@ tooling:
     description: Build production package.
     cmd:
       - appserver: /app/.lando/production.sh
+  syncdb:
+    description: Synchronise local database with production.
+    cmd:
+      - appserver: /app/.lando/syncdb.sh
   update:
     description: Update local database.
     cmd:
