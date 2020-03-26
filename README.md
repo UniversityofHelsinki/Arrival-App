@@ -41,13 +41,19 @@ lando production
 ### Deploying to production
 
 ```sh
-scp production.tgz $kevari@uniarrival.it.helsinki.fi:
-ssh $kevari@uniarrival.it.helsinki.fi
+scp production.tgz wunderkraut@uniarrival.it.helsinki.fi:
+ssh wunderkraut@uniarrival.it.helsinki.fi
 cd /var/www/current
-sudo mv /home/$kevari/production.tgz .
+sudo rm -rf production.tgz
+sudo mv /home/wunderkraut/production.tgz .
 sudo tar xvfz production.tgz
 sudo chown -R apache:apache .
-cd drupal && ../vendor/bin/drush cim -y
+cd drupal
+../vendor/bin/drush updb -y
+../vendor/bin/drush cim -y
+../vendor/bin/drush cc drush -y
+../vendor/bin/drush cr -y
+
 ```
 
-$kevari is your kevyttunnus which you can get from HY.
+Replace `wunderkraut` username here and in `drush/sites/uniarrival.site.yml` if needed.
