@@ -82,4 +82,4 @@ proxy:
 #     - appserver: cd $LANDO_WEBROOT && drush @local cr -y && drush @local uli
 
 # Lando version.
-version: v3.0.0-rc.23
+version: v3.0.0-rrc.2
