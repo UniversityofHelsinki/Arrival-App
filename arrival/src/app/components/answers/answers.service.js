@@ -41,7 +41,7 @@
 
       function getHidden(selection) {
         return $http.get(apiHost + 'hide/' + selection)
-          .success(function(data) {
+          .then(function(data) {
             listHidden = data;
           });
       }

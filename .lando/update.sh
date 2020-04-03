@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exu
 
-LOCAL=@self.local
+LOCAL=@uniarrival.local
 
 # Update local database.
 drush "$LOCAL" updb -y

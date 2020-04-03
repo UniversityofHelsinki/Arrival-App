@@ -380,6 +380,8 @@ display:
         options:
           formats:
             json: json
+          grouping: {  }
+          uses_fields: false
       row:
         type: data_field
         options:

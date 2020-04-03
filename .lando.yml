@@ -52,6 +52,10 @@ tooling:
     description: Build production package.
     cmd:
       - appserver: /app/.lando/production.sh
+  syncdb:
+    description: Synchronise local database with production.
+    cmd:
+      - appserver: /app/.lando/syncdb.sh
   update:
     description: Update local database.
     cmd:
@@ -73,9 +77,9 @@ proxy:
   adminer:
     - adminer-uniarrival.lndo.site
 
-events:
-  post-db-import:
-    - appserver: cd $LANDO_WEBROOT && drush @local cr -y && drush @local uli
+# events:
+#   post-db-import:
+#     - appserver: cd $LANDO_WEBROOT && drush @local cr -y && drush @local uli
 
 # Lando version.
-version: v3.0.0-rc.23
+version: v3.0.0-rrc.2

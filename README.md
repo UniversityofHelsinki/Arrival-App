@@ -8,9 +8,11 @@ The [Uni Arrival Advisor](https://uniarrival.helsinki.fi/) will guide you throug
 
 1. Read the [Lando docs](https://docs.lando.dev/) and install the **latest** [Lando](https://github.com/lando/lando/releases).
 2. Check out the repo: `git clone git@github.com:UniversityofHelsinki/Arrival-App.git uniarrival && cd uniarrival`.
-3. Start the site: `lando start`.
-4. Get the database dump: `scp wunderkraut@uniarrival.it.helsinki.fi:/home/wunderkraut/2017-10-30-arrival-app.sql dump.sql`.
-5. Import the database dump: `lando db-import dump.sql`.
+3. Start the site by running `lando start`.
+4. Import data:
+   1. `lando syncdb` - (**add your public key to production server & connect to VPN first!**) synchronise local DB with production or
+   2. `lando db-import <dumpfile>`.
+5. Update database & enable develpoment components: `lando update`.
 6. Go to <https://uniarrival.lndo.site/>.
 
 ### Services
@@ -23,6 +25,7 @@ The [Uni Arrival Advisor](https://uniarrival.helsinki.fi/) will guide you throug
 Full commands/tools overview is available by running `lando`. Custom tools:
 
 - `lando bower`, `lando gulp`, `lando npm` - frontend tooling,
+- `lando syncdb` - synchronise local database with production,
 - `lando update` - update local database,
 - `lando xdebug-on` - enables xdebug,
 - `lando xdebug-off` - disables xdebug.
@@ -38,13 +41,19 @@ lando production
 ### Deploying to production
 
 ```sh
-scp production.tgz $kevari@uniarrival.it.helsinki.fi:
-ssh $kevari@uniarrival.it.helsinki.fi
+scp production.tgz wunderkraut@uniarrival.it.helsinki.fi:
+ssh wunderkraut@uniarrival.it.helsinki.fi
 cd /var/www/current
-sudo mv /home/$kevari/production.tgz .
+sudo rm -rf production.tgz
+sudo mv /home/wunderkraut/production.tgz .
 sudo tar xvfz production.tgz
 sudo chown -R apache:apache .
-cd drupal && ../vendor/bin/drush cim -y
+cd drupal
+../vendor/bin/drush updb -y
+../vendor/bin/drush cim -y
+../vendor/bin/drush cc drush -y
+../vendor/bin/drush cr -y
+
 ```
 
-$kevari is your kevyttunnus which you can get from HY.
+Replace `wunderkraut` username here and in `drush/sites/uniarrival.site.yml` if needed.

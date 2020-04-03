@@ -1,0 +1,16 @@
+# Edit or remove this file as needed.
+# Docs at https://github.com/drush-ops/drush/blob/master/examples/example.site.yml
+
+local:
+  root: ${env.LANDO_WEBROOT}
+  uri: https://${env.LANDO_APP_PROJECT}.${env.LANDO_DOMAIN}
+
+prod:
+  host: uniarrival.it.helsinki.fi
+  user: wunderkraut
+  root: /var/www/current/drupal
+  uri: https://uniarrival.helsinki.fi
+  paths:
+    drush-script: '/var/www/current/vendor/bin/drush'
+  ssh:
+    tty: 0
