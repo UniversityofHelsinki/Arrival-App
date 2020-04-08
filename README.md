@@ -47,13 +47,15 @@ cd /var/www/current
 sudo rm -rf production.tgz
 sudo mv /home/wunderkraut/production.tgz .
 sudo tar xvfz production.tgz
-sudo chown -R apache:apache .
+sudo chown -R wunderkraut:wunderkraut .
+sudo chown -R wunderkraut:wunderkraut /data/drupal/files
 cd drupal
 ../vendor/bin/drush updb -y
 ../vendor/bin/drush cim -y
 ../vendor/bin/drush cc drush -y
 ../vendor/bin/drush cr -y
-
+sudo chown -R apache:apache .
+sudo chown -R apache:apache /data/drupal/files
 ```
 
 Replace `wunderkraut` username here and in `drush/sites/uniarrival.site.yml` if needed.
