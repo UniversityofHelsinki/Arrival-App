@@ -4,7 +4,7 @@ set -exu
 # Synchronise local database with selected environment.
 
 # Set paths.
-webroot=/app/web
+webroot=/app/drupal
 
 # Set Drush aliases.
 site=@uniarrival
