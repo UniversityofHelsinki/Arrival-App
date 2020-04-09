@@ -30,31 +30,25 @@ Full commands/tools overview is available by running `lando`. Custom tools:
 - `lando xdebug-on` - enables xdebug,
 - `lando xdebug-off` - disables xdebug.
 
-## Production
+## Deployment to production
 
-### Generation of production build
-
-```sh
-lando production
-```
-
-### Deploying to production
+1. Generate the production package: `lando production`.
+2. Copy production package to the server: `scp production.tgz wunderkraut@uniarrival.it.helsinki.fi:`.
+3. Log in to server: `ssh wunderkraut@uniarrival.it.helsinki.fi`.
+4. Run deployment steps:
 
 ```sh
-scp production.tgz wunderkraut@uniarrival.it.helsinki.fi:
-ssh wunderkraut@uniarrival.it.helsinki.fi
-cd /var/www/current
-sudo rm -rf production.tgz
-sudo mv /home/wunderkraut/production.tgz .
-sudo tar xvfz production.tgz
-sudo chown -R wunderkraut:wunderkraut .
+sudo rm -rf /var/www/current/production.tgz
+sudo mv /home/wunderkraut/production.tgz /var/www/current/production.tgz
+sudo tar xvfz /var/www/current/production.tgz
+sudo chown -R wunderkraut:wunderkraut /var/www/current
 sudo chown -R wunderkraut:wunderkraut /data/drupal/files
-cd drupal
-../vendor/bin/drush updb -y
-../vendor/bin/drush cim -y
-../vendor/bin/drush cc drush -y
-../vendor/bin/drush cr -y
-sudo chown -R apache:apache .
+cd /var/www/current/drupal
+/var/www/current/vendor/bin/drush updb -y
+/var/www/current/vendor/bin/drush cim -y
+/var/www/current/vendor/bin/drush cc drush -y
+/var/www/current/vendor/bin/drush cr -y
+sudo chown -R apache:apache /var/www/current
 sudo chown -R apache:apache /data/drupal/files
 ```
 
