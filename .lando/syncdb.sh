@@ -38,4 +38,3 @@ drush "$local" sql-query --file=/app/dump.sql -y
 drush "$local" cc drush
 drush "$local" cr
 rm -rf /app/dump.sql
-drush "$local" uli

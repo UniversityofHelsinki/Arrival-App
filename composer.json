@@ -19,13 +19,14 @@
         "php": ">=7.0.8",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
+        "drupal/admin_toolbar": "^2.2",
         "drupal/config_installer": "~1.7",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8",
-        "drush/drush": "^9.7.1 || ^10.0.0",
+        "drupal/mimemail": "^1.0@alpha",
+        "drush/drush": "^10.2",
         "vlucas/phpdotenv": "^4.0",
-        "webflo/drupal-finder": "^1.0.0",
-        "drupal/mimemail": "^1.0@alpha"
+        "webflo/drupal-finder": "^1.0.0"
     },
     "require-dev": {
         "zaporylie/composer-drupal-optimizations": "^1.1"
