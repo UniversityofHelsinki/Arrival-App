@@ -1,6 +1,8 @@
 #!/bin/bash
 set -exu
 
+chmod -R a+w web/sites/default
+
 LOCAL=@uniarrival.local
 
 # Update local database.
