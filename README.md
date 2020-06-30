@@ -42,10 +42,11 @@ Full commands/tools overview is available by running `lando`. Custom tools:
 4. Run deployment steps:
 
 ```sh
-sudo rm -rf /var/www/current/production.tgz
-sudo mv /home/wunderkraut/production.tgz /var/www/current/production.tgz
-sudo tar xvfz /var/www/current/production.tgz
-sudo chown -R wunderkraut:wunderkraut /var/www/current
+cd /var/www/current
+sudo rm -rf production.tgz
+sudo mv /home/wunderkraut/production.tgz .
+sudo tar xvfz production.tgz
+sudo chown -R wunderkraut:wunderkraut .
 sudo chown -R wunderkraut:wunderkraut /data/drupal/files
 cd /var/www/current/drupal
 /var/www/current/vendor/bin/drush updb -y
