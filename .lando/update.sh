@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exu
 
-chmod -R a+w drupal/sites/default
+chmod -R a+w /app/drupal/sites/default
 
 LOCAL=@uniarrival.local
 
