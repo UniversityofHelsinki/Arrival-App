@@ -11,6 +11,11 @@ $settings['config_sync_directory'] = '../config/sync';
 $settings['install_profile'] = 'config_installer';
 
 /**
+ * Exclude development modules.
+ */
+$settings['config_exclude_modules'] = ['warden'];
+
+/**
  * Environment specific override configuration, if available.
  */
 if (file_exists(__DIR__ . '/settings.local.php')) {
