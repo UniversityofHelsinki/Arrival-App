@@ -30,7 +30,6 @@
         "webflo/drupal-finder": "^1.0.0"
     },
     "require-dev": {
-        "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
