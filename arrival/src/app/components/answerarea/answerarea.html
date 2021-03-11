@@ -7,10 +7,10 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-class="main.showEmailModal ? 'in' : ''">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <p>Please enter your email address</p>
+      <label for="email-this-modal--input-field">Please enter your email address</label>
       <form name="emailForm" ng-submit="sendSubmitter()" class="email-form row">
         <div class="col-xs-8">
-          <input type="email" ng-model="email" required="required" class="input-field-email" />
+          <input id="email-this-modal--input-field" type="email" ng-model="email" required="required" class="input-field-email" />
         </div>
         <div class="col-xs-4">
           <input type="submit" class="button button-wide button-send-email" value="Send"/>
