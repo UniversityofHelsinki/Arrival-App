@@ -3,6 +3,8 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+const protractor = require('../protractor.conf');
+const serve = require('./server');
 
 var browserSync = require('browser-sync');
 
@@ -33,6 +35,6 @@ function runProtractor (done) {
     });
 }
 
-gulp.task('protractor', ['protractor:src']);
-gulp.task('protractor:src', ['serve:e2e', 'webdriver-update'], runProtractor);
-gulp.task('protractor:dist', ['serve:e2e-dist', 'webdriver-update'], runProtractor);
+gulp.task('protractor:src', gulp.series(['serve:e2e', 'webdriver-update']), () => { }, runProtractor);
+gulp.task('protractor', gulp.series(['protractor:src']), () => { });
+gulp.task('protractor:dist', gulp.series(['serve:e2e-dist', 'webdriver-update']), () => { }, runProtractor);
