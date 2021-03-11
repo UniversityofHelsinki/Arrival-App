@@ -42,6 +42,10 @@ services:
 tooling:
   bower:
     service: node
+  build:
+    description: Build an app.
+    cmd:
+      - node: /app/.lando/node.sh
   gulp:
     service: node
   node:
