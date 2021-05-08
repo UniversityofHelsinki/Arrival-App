@@ -215,7 +215,7 @@ h1 {
 
 button,
 .button {
-  background-color: #178feb;
+  background-color: $blue;
   color: white;
   border: 0;
   font-size: 1.2em;
@@ -249,29 +249,25 @@ button,
   &:after {
     content: "";
     display: block;
-    background-color: #1073bf;
+    background-color: $darkblue--active;
   }
 
   &.button-back:before {
     transform: rotate(180deg);
   }
 
-  &:hover {
-    background-color: #0c5790;
+  &:hover,
+  &:focus {
+    background-color: $blue--active;
 
     &:after {
-      background-color: #083a61;
+      background-color: $darkblue--active;
     }
   }
 
-  &.answer-header {
-    //background-color: white;
-    //border: 1px solid #178feb;
-    //color: #178feb;
-
-    &:after {
-      //display: none;
-    }
+  &:focus-visible {
+    background-color: $blue--active;
+    outline: 2px solid $darkblue--active;
   }
 
   &.reset {
@@ -280,7 +276,7 @@ button,
 
   &.theme-transparent {
     background-color: transparent;
-    color: #178feb;
+    color: $blue;
     padding-right: 4rem;
     padding-left: 0rem;
 
@@ -399,11 +395,11 @@ disclaimerarea header {
   }
 
   .button-send-email {
-    border: 2px solid #178feb;
+    border: 2px solid $blue;
     margin-bottom: 0;
 
     &:hover {
-      border-color: #0c5790;
+      border-color: $darkblue;
     }
   }
 }
