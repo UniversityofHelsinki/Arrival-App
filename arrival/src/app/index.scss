@@ -144,10 +144,11 @@ header {
 
   .brand-title {
     color: white;
-    display: block;
+    display: inline-block;
     height: 46px;
     line-height: 46px;
     font-size: 14px;
+    padding-right: 1em;
     padding-left: 55px;
     letter-spacing: -.05em;
     font-weight: bold;
@@ -155,9 +156,14 @@ header {
     &:hover,
     &:active,
     &:focus,
+    &:focus-visible,
     &:visited {
       color: white;
       text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid white;
     }
   }
 }
