@@ -13,7 +13,7 @@ The [Uni Arrival Advisor](https://uniarrival.helsinki.fi/) will guide you throug
    1. `lando syncdb` - (**add your public key to production server & connect to VPN first!**) synchronise local DB with production or
    2. `lando db-import <dumpfile>`.
 5. Update database & enable develpoment components: `lando update`.
-6. Import config if needed: `lando drush @uniarrival.local cim -y`.
+6. Import config if needed: `lando drush @local cim -y`.
 
 ### Sites
 

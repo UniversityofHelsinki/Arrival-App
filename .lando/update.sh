@@ -1,19 +1,15 @@
 #!/bin/bash
 set -exu
 
-chmod -R a+w /app/drupal/sites/default
-
-LOCAL=@uniarrival.local
-
 # Update local database.
-drush "$LOCAL" updb -y
+drush @local updb -y
 
 # Remove production modules.
-drush "$LOCAL" pmu warden -y
+drush @local pmu warden -y
 
 # Clear caches.
-drush "$LOCAL" cc drush
-drush "$LOCAL" cr -y
+drush @local cc drush
+drush @local cr -y
 
 # Generate login URL.
-drush "$LOCAL" uli
+drush @local uli
