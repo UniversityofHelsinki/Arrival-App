@@ -11,7 +11,7 @@ services:
   adminer:
     type: compose
     services:
-      image: dehy/adminer:4.7
+      image: dehy/adminer
       command: /bin/s6-svscan /etc/services.d
     run_as_root:
       - /app/.lando/adminer.sh
@@ -81,5 +81,8 @@ proxy:
   adminer:
     - adminer-uniarrival.lndo.site
 
+env_file:
+  - .lando/.env
+
 # Lando version.
-version: v3.1.2
+version: v3.1.4
