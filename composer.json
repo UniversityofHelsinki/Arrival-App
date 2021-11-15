@@ -20,16 +20,17 @@
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6.5",
         "drupal/admin_toolbar": "^2.3",
-        "drupal/config_installer": "~1.7",
-        "drupal/core-composer-scaffold": "^8.9",
-        "drupal/core-recommended": "^8.9",
+        "drupal/core-composer-scaffold": "^9.2",
+        "drupal/core-recommended": "^9.2",
         "drupal/mimemail": "^1.0",
-        "drupal/warden": "^2.0",
+        "drupal/warden": "^3",
         "drush/drush": "^10.3",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0"
     },
     "require-dev": {
+        "drupal/core-dev": "^9.2",
+        "drupal/upgrade_status": "^3.11"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -37,11 +38,13 @@
         "sort-packages": true,
         "discard-changes": true
     },
-        "autoload": {
-            "classmap": [
-                "scripts/composer/ScriptHandler.php"
-            ],
-            "files": ["load.environment.php"]
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": [
+            "load.environment.php"
+        ]
     },
     "scripts": {
         "pre-install-cmd": [
@@ -64,15 +67,26 @@
             }
         },
         "installer-paths": {
-            "drupal/core": ["type:drupal-core"],
-            "drupal/libraries/{$name}": ["type:drupal-library"],
-            "drupal/modules/contrib/{$name}": ["type:drupal-module"],
-            "drupal/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "drupal/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/{$name}": ["type:drupal-drush"]
+            "drupal/core": [
+                "type:drupal-core"
+            ],
+            "drupal/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "drupal/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "drupal/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "drupal/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/{$name}": [
+                "type:drupal-drush"
+            ]
         },
         "composer-exit-on-patch-failure": true,
-        "patches": {
-        }
+        "patches": []
     }
 }
