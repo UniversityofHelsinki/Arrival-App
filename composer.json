@@ -23,7 +23,6 @@
         "drupal/core-composer-scaffold": "^9.2",
         "drupal/core-recommended": "^9.2",
         "drupal/mimemail": "^1.0",
-        "drupal/profile_switcher": "^1.0@alpha",
         "drupal/warden": "^3",
         "drush/drush": "^10.3",
         "vlucas/phpdotenv": "^4.0",
