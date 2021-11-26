@@ -24,7 +24,6 @@
         "drupal/core-composer-scaffold": "^8.9",
         "drupal/core-recommended": "^8.9",
         "drupal/mimemail": "^1.0",
-        "drupal/profile_switcher": "^1.0@alpha",
         "drupal/warden": "^2.0",
         "drush/drush": "^10.3",
         "vlucas/phpdotenv": "^4.0",
@@ -36,11 +35,13 @@
         "sort-packages": true,
         "discard-changes": true
     },
-        "autoload": {
-            "classmap": [
-                "scripts/composer/ScriptHandler.php"
-            ],
-            "files": ["load.environment.php"]
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": [
+            "load.environment.php"
+        ]
     },
     "scripts": {
         "pre-install-cmd": [
@@ -63,15 +64,26 @@
             }
         },
         "installer-paths": {
-            "drupal/core": ["type:drupal-core"],
-            "drupal/libraries/{$name}": ["type:drupal-library"],
-            "drupal/modules/contrib/{$name}": ["type:drupal-module"],
-            "drupal/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "drupal/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/{$name}": ["type:drupal-drush"]
+            "drupal/core": [
+                "type:drupal-core"
+            ],
+            "drupal/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "drupal/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "drupal/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "drupal/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/{$name}": [
+                "type:drupal-drush"
+            ]
         },
         "composer-exit-on-patch-failure": true,
-        "patches": {
-        }
+        "patches": []
     }
 }
