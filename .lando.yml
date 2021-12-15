@@ -17,7 +17,7 @@ services:
       - /app/.lando/adminer.sh
     portforward: true
   appserver:
-    type: 'php:7.2'
+    type: 'php:7.4'
     webroot: drupal
     build:
       - composer install
@@ -26,13 +26,13 @@ services:
         WKV_SITE_ENV: lando
         HASH_SALT: notsosecurehash
   database:
-    type: 'mariadb:10.1'
+    type: 'mariadb:10.3'
   mailhog:
     type: mailhog
     hogfrom:
       - appserver
   node:
-    type: node
+    type: node:10
     globals:
       gulp-cli: latest
       bower: latest
@@ -85,4 +85,4 @@ env_file:
   - .lando/.env
 
 # Lando version.
-version: v3.1.4
+version: v3.6.0
