@@ -25,6 +25,7 @@ services:
       environment:
         WKV_SITE_ENV: lando
         HASH_SALT: notsosecurehash
+        DRUSH_OPTIONS_URI: https://uniarrival.lndo.site
   database:
     type: 'mariadb:10.3'
   mailhog:
