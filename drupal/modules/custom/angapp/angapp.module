@@ -1,6 +1,6 @@
 <?php
 
-use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_mail().
@@ -29,7 +29,7 @@ function angapp_mail($key, &$message, $params) {
 
       $list = '<ul>';
       foreach ($params['progress'] as $row) {
-        $list .= '<li style="margin-bottom:.5em;"><b style:"text-transform:uppercase;">' . SafeMarkup::checkPlain($row['question'] . ': ' . ($row['answer'])) . '</li>';
+        $list .= '<li style="margin-bottom:.5em;"><b style:"text-transform:uppercase;">' . Html::escape($row['question'] . ': ' . ($row['answer'])) . '</li>';
       }
       $list .= '</ul>';
       $message['body'][] = $list;
@@ -54,7 +54,7 @@ function angapp_mail($key, &$message, $params) {
         $message['body'][] = $row['body'];
       }
 
-      $message['body'] = [SafeMarkup::checkPlain(implode($message['body']))];
+      $message['body'] = [Html::escape(implode($message['body']))];
 
       break;
   }
