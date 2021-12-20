@@ -28,6 +28,7 @@ cp -a /app/drupal/web.config /app/production/drupal/web.config
 cp -a /app/conf/prod.settings.php /app/production/drupal/sites/default/settings.local.php
 cp -a /app/drupal/sites/default/settings.php /app/production/drupal/sites/default/settings.php
 cp -a /app/README.md /app/production/README.md
+cp -a /app/deploy.sh /app/production/deploy.sh
 
 cd /app/production/drupal/sites/default
 ln -sf ../../../../files files

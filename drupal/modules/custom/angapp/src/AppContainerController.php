@@ -8,8 +8,10 @@
 
 namespace Drupal\angapp;
 
+use Drupal\Component\Utility\EmailValidator;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +23,27 @@ use GuzzleHttp\Exception\RequestException;
  * AppContainerController.
  */
 class AppContainerController extends ControllerBase {
+
+  /**
+   * @var \Drupal\Component\Utility\EmailValidator
+   */
+  protected $emailValidator;
+
+  /**
+   * {@inheritDoc}
+   */
+  public function __construct(EmailValidator $email_validator) {
+    $this->emailValidator = $email_validator;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('email.validator')
+    );
+  }
 
   /**
    * Redirect user from the homepage to the app page.
@@ -49,7 +72,7 @@ class AppContainerController extends ControllerBase {
     $progress = $params['progress'];
 
     // Handle errors.
-    if (!valid_email_address($email) ||
+    if (!$this->emailValidator->isValid($email) ||
         strlen($result) < 2) {
       return new JsonResponse([
         'status' => 'error',

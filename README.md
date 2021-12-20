@@ -13,7 +13,7 @@ The [Uni Arrival Advisor](https://uniarrival.helsinki.fi/) will guide you throug
    1. `lando syncdb` - (**add your public key to production server & connect to VPN first!**) synchronise local DB with production or
    2. `lando db-import <dumpfile>`.
 5. Update database & enable develpoment components: `lando update`.
-6. Import config if needed: `lando drush @uniarrival.local cim -y`.
+6. Import config if needed: `lando drush @local cim -y`.
 
 ### Sites
 
@@ -38,24 +38,14 @@ Full commands/tools overview is available by running `lando`. Custom tools:
 ## Deployment to production
 
 1. Generate the production package: `lando production`.
-2. Copy production package to the server: `scp production.tgz wunderkraut@uniarrival.it.helsinki.fi:`.
-3. Log in to server: `ssh wunderkraut@uniarrival.it.helsinki.fi`.
+2. Copy production package to the server: `scp production.tgz [your-username]@uniarrival.it.helsinki.fi:.`.
+3. Log in to server: `ssh [your-username]@uniarrival.it.helsinki.fi`.
 4. Run deployment steps:
 
 ```sh
 cd /var/www/current
-sudo rm -rf production.tgz
-sudo mv /home/wunderkraut/production.tgz .
-sudo tar xvfz production.tgz
-sudo chown -R wunderkraut:wunderkraut .
-sudo chown -R wunderkraut:wunderkraut /data/drupal/files
-cd /var/www/current/drupal
-/var/www/current/vendor/bin/drush updb -y
-/var/www/current/vendor/bin/drush cim -y
-/var/www/current/vendor/bin/drush cc drush -y
-/var/www/current/vendor/bin/drush cr -y
-sudo chown -R apache:apache /var/www/current
-sudo chown -R apache:apache /data/drupal/files
+./deploy.sh
 ```
+Enter your username and password when asked
 
-Replace `wunderkraut` username here and in `drush/sites/uniarrival.site.yml` if needed.
+!NB helsinki.fi user required for server access
