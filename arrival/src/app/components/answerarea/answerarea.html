@@ -4,7 +4,7 @@
   </button>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-class="main.showEmailModal ? 'in' : ''">
+<div class="modal fade ng-hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-show="main.showEmailModal" ng-class="main.showEmailModal ? 'in' : ''">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <label for="email-this-modal--input-field">Please enter your email address</label>
