@@ -28,6 +28,14 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   src: url("../fonts/Lora-700italic.eot?#iefix") format("embedded-opentype"), local("Lora Bold Italic"), local("Lora-700italic"), url("../fonts/Lora-700italic.woff2") format("woff2"), url("../fonts/Lora-700italic.woff") format("woff"), url("../fonts/Lora-700italic.ttf") format("truetype"), url("../fonts/Lora-700italic.svg#Lora") format("svg");
 }
 
+$blue: #107EAB;
+$blue--active: #0E688B;
+$darkblue: #005379;
+$darkblue--active: #003146;
+
+$green: #96BA3C;
+$darkgreen: #006400;
+
 $gray: #979797;
 
 .hy {
@@ -136,10 +144,11 @@ header {
 
   .brand-title {
     color: white;
-    display: block;
+    display: inline-block;
     height: 46px;
     line-height: 46px;
     font-size: 14px;
+    padding-right: 1em;
     padding-left: 55px;
     letter-spacing: -.05em;
     font-weight: bold;
@@ -147,9 +156,14 @@ header {
     &:hover,
     &:active,
     &:focus,
+    &:focus-visible,
     &:visited {
       color: white;
       text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid white;
     }
   }
 }
@@ -201,7 +215,7 @@ h1 {
 
 button,
 .button {
-  background-color: #178feb;
+  background-color: $blue;
   color: white;
   border: 0;
   font-size: 1.2em;
@@ -235,29 +249,25 @@ button,
   &:after {
     content: "";
     display: block;
-    background-color: #1073bf;
+    background-color: $darkblue--active;
   }
 
   &.button-back:before {
     transform: rotate(180deg);
   }
 
-  &:hover {
-    background-color: #0c5790;
+  &:hover,
+  &:focus {
+    background-color: $blue--active;
 
     &:after {
-      background-color: #083a61;
+      background-color: $darkblue--active;
     }
   }
 
-  &.answer-header {
-    //background-color: white;
-    //border: 1px solid #178feb;
-    //color: #178feb;
-
-    &:after {
-      //display: none;
-    }
+  &:focus-visible {
+    background-color: $blue--active;
+    outline: 2px solid $darkblue--active;
   }
 
   &.reset {
@@ -266,7 +276,7 @@ button,
 
   &.theme-transparent {
     background-color: transparent;
-    color: #178feb;
+    color: $blue;
     padding-right: 4rem;
     padding-left: 0rem;
 
@@ -324,8 +334,13 @@ answerarea div:first-of-type {
 .prompt {
   @extend .lora;
   color: $gray;
-}
 
+  &:focus-visible {
+    border: 0;
+    outline: 2px solid $gray;
+    outline-offset: 2px;
+  }
+}
 
 disclaimerarea header {
   height: 53px;
@@ -342,6 +357,7 @@ disclaimerarea header {
   left: 0;
   z-index: 1;
 }
+
 .modal-bg {
   background-color: rgba(0,0,0,.2);
   cursor: pointer;
@@ -385,11 +401,11 @@ disclaimerarea header {
   }
 
   .button-send-email {
-    border: 2px solid #178feb;
+    border: 2px solid $blue;
     margin-bottom: 0;
 
     &:hover {
-      border-color: #0c5790;
+      border-color: $darkblue;
     }
   }
 }
@@ -413,7 +429,7 @@ disclaimerarea header {
   background-color: #b2e576;
   color: #222;
   margin-top: 15px;
-  
+
   p {
     @extend .hy;
     @extend .hy-done;
@@ -550,7 +566,7 @@ footer {
       line-height: 46px;
     }
   }
-  
+
   .contact {
     h4 {
       font-size: 16px;
@@ -575,6 +591,12 @@ footer {
       &:active {
         color: inherit;
         text-decoration: none;
+      }
+
+      &:focus-visible {
+        border: 0;
+        outline: 2px solid white;
+        outline-offset: 2px;
       }
     }
 
@@ -712,6 +734,12 @@ footer {
         content: "\EA48";
       }
     }
+
+    &:focus-visible {
+      border: 0;
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
   }
 
   @media (min-width: 48em) {
@@ -837,6 +865,12 @@ a.list-of-links__link,
   .list-of-links__link > a {
     border-bottom-color: black;
     color: white;
+
+    &:focus-visible {
+      border: 0;
+      outline: 2px solid white;
+      outline-offset: .5em;
+    }
   }
 }
 
@@ -849,12 +883,6 @@ a.list-of-links__link,
     padding-top: .8em;
     padding-bottom: .8em;
   }
-}
-
-.toggle-info:focus,
-button:focus {
-  outline: none;
-  box-shadow: 0 0 2px 3px rgba(59, 153, 252, .5);
 }
 
 /**
