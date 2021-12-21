@@ -396,13 +396,15 @@ disclaimerarea header {
     width: 100%;
     font-size: 1.2em;
     outline: 0;
-    padding: 1.5rem 2rem 1.5rem 2rem;
+    padding: 1.5rem 2rem;
     position: relative;
   }
 
   .button-send-email {
     border: 2px solid $blue;
     margin-bottom: 0;
+    padding: 1.5rem 2rem;
+    text-align: center;
 
     &:hover {
       border-color: $darkblue;
