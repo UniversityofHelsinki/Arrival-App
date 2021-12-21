@@ -33,7 +33,7 @@ services:
     hogfrom:
       - appserver
   node:
-    type: node:10
+    type: node:16
     globals:
       gulp-cli: latest
       bower: latest
