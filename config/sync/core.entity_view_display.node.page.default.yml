@@ -20,55 +20,55 @@ bundle: page
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 100
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
   field_is_disclaimer:
-    weight: 103
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 103
     region: content
   field_is_email_intro:
-    weight: 105
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 105
     region: content
   field_is_intro:
-    weight: 102
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 102
     region: content
   field_is_result_intro:
-    weight: 104
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 104
     region: content
   links:
-    weight: 101
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 101
+    region: content
 hidden: {  }

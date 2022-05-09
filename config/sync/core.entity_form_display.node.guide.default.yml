@@ -18,46 +18,46 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 1
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   field_category:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
+    weight: 2
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_hide_when:
+    type: options_buttons
     weight: 27
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_show_when:
+    type: options_buttons
     weight: 26
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   status:
     type: boolean_checkbox
+    weight: 121
+    region: content
     settings:
       display_label: true
-    weight: 121
     third_party_settings: {  }
-    region: content
   title:
     type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   path: true

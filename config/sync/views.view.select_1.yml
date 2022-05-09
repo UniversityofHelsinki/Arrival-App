@@ -22,81 +22,11 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 10
-          offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
-      style:
-        type: serializer
-        options:
-          formats:
-            json: json
-      row:
-        type: data_field
-        options:
-          field_options:
-            title:
-              alias: question
-              raw_output: false
-            field_options:
-              alias: options
-              raw_output: false
-            field_options_1:
-              alias: option_ids
-              raw_output: false
-            body:
-              alias: info
-              raw_output: false
-            field_hide_select_when:
-              alias: hide
-              raw_output: false
       fields:
         title:
           id: title
@@ -105,6 +35,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -160,9 +93,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
         field_options:
           id: field_options
           table: node__field_options
@@ -170,6 +100,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -225,7 +156,6 @@ display:
           multi_type: separator
           separator: '||'
           field_api_classes: false
-          plugin_id: field
         field_options_1:
           id: field_options_1
           table: node__field_options
@@ -233,6 +163,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -288,7 +219,6 @@ display:
           multi_type: separator
           separator: '||'
           field_api_classes: false
-          plugin_id: field
         body:
           id: body
           table: node__body
@@ -296,6 +226,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -350,7 +281,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_hide_select_when:
           id: field_hide_select_when
           table: node__field_hide_select_when
@@ -358,6 +288,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -413,33 +344,45 @@ display:
           multi_type: separator
           separator: '||'
           field_api_classes: false
-          plugin_id: field
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            select: select
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
       sorts:
         field_select_number_value:
           id: field_select_number_value
@@ -448,15 +391,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           order: ASC
-          exposed: false
           expose:
             label: ''
-          plugin_id: standard
-      header: {  }
-      footer: {  }
-      empty: {  }
-      relationships: {  }
+            field_identifier: field_select_number_value
+          exposed: false
       arguments:
         field_select_number_value:
           id: field_select_number_value
@@ -465,6 +405,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           default_action: default
           exception:
             value: all
@@ -479,8 +420,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -492,7 +433,67 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-          plugin_id: numeric
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            select: select
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            title:
+              alias: question
+              raw_output: false
+            field_options:
+              alias: options
+              raw_output: false
+            field_options_1:
+              alias: option_ids
+              raw_output: false
+            body:
+              alias: info
+              raw_output: false
+            field_hide_select_when:
+              alias: hide
+              raw_output: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -509,21 +510,21 @@ display:
         - 'config:field.storage.node.field_hide_select_when'
         - 'config:field.storage.node.field_options'
   rest_export_1:
-    display_plugin: rest_export
     id: rest_export_1
     display_title: 'REST export'
+    display_plugin: rest_export
     position: 1
     display_options:
-      display_extenders: {  }
-      path: api/question/%
       pager:
         type: some
         options:
-          items_per_page: 10
           offset: 0
+          items_per_page: 10
       defaults:
         style: true
         row: true
+      display_extenders: {  }
+      path: api/question/%
       auth: {  }
     cache_metadata:
       max-age: -1
