@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: m2GVq11UAOVuNgj8x0t5fMOPujpvQQ_zxLoaly1BMEU
 module:
   admin_toolbar: 0
   angapp: 0
@@ -52,6 +54,4 @@ module:
 theme:
   bartik: 0
   seven: 0
-_core:
-  default_config_hash: m2GVq11UAOVuNgj8x0t5fMOPujpvQQ_zxLoaly1BMEU
 profile: minimal
